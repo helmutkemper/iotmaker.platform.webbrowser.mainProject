@@ -20,7 +20,7 @@ func main() {
 	c.MoveTo(0.0, 0.0)
 	c.LineTo(50.0, 50.0)
 	c.Stroke()
-	c.Document.AppendChildToBody(c.GetElement())
+	c.AppendToDocumentBody()
 
 }
 
