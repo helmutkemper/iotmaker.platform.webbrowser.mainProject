@@ -8,6 +8,11 @@ import (
 
 func main() {
 
-	js.NewCanvasWith2DContext(50.0, 50.0)
-
+	el := js.NewExistentElementById("mycanvas")
+	el.NewCanvas("canvas_id")
+	//c := js.NewCanvasWith2DContext("MyCanvas", 50.0, 50.0)
+	el.Get()
+	c.LineTo(50.0, 50.0)
+	c.StrokeStyle("#000000")
+	c.Stroke()
 }
