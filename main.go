@@ -2,7 +2,7 @@
 
 package main
 
-import iotmaker_platform "github.com/helmutkemper/iotmaker.platform"
+import iot_p "github.com/helmutkemper/iotmaker.platform"
 
 func main() {
 
@@ -12,7 +12,7 @@ func main() {
 	  el.AppendChildToBody( d )
 	*/
 
-	s := iotmaker_platform.Stage{}
+	s := iot_p.Stage{}
 	s.NewStageOnTheRoot("stage_id")
 
 }
