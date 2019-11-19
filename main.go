@@ -2,9 +2,7 @@
 
 package main
 
-import (
-	js "github.com/helmutkemper/iotmaker.platform.webbrowser"
-)
+import iotmaker_platform "github.com/helmutkemper/iotmaker.platform"
 
 func main() {
 
@@ -14,13 +12,8 @@ func main() {
 	  el.AppendChildToBody( d )
 	*/
 
-	c := js.NewCanvasWith2DContext("canvas_id", 50.0, 50.0)
-	c.BeginPath()
-	//c.StrokeStyle("#FF0000")
-	c.MoveTo(0.0, 0.0)
-	c.LineTo(50.0, 50.0)
-	c.Stroke()
-	c.AppendToDocumentBody()
+	s := iotmaker_platform.Stage{}
+	s.NewStageOnTheRoot("stage_id")
 
 }
 
