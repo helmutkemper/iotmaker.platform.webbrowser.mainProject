@@ -2,7 +2,10 @@
 
 package main
 
-import iot_p "github.com/helmutkemper/iotmaker.platform"
+import (
+	"fmt"
+	iot_p "github.com/helmutkemper/iotmaker.platform"
+)
 
 func main() {
 
@@ -12,6 +15,7 @@ func main() {
 	  el.AppendChildToBody( d )
 	*/
 
+	fmt.Printf("Olá mundo!")
 	s := iot_p.Stage{}
 	s.NewStageOnTheRoot("stage_id")
 
