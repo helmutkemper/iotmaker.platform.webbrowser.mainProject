@@ -443,6 +443,51 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/arc.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/arcTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/beginPath.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/closePath.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/lineTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/moveTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/typeCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/canvas/moveTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/canvas/typeCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/interfaceGraphic.go">
           <value>
             <set />
@@ -464,6 +509,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeDraw.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeInterfaceCanvas.go">
           <value>
             <set />
           </value>
@@ -519,6 +569,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCanvasTextBaseLineRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCoordinate.go">
           <value>
             <set />
           </value>
