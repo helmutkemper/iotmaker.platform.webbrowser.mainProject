@@ -10,9 +10,15 @@ import (
 
 func main() {
 
-	_, stage := iotmaker_platform_webbrowser.NewStage("stage", 300, 300, 1)
+	_, stage := iotmaker_platform_webbrowser.NewStage(
+		"stage",
+		300,
+		300,
+		1,
+		&iotmaker_platform_webbrowser.Coordinate{},
+	)
 
-	var draw iotmaker_platform.ICanvas = &stage.Canvas
+	var draw iotmaker_platform.ICanvas = &iotmaker_platform.Draw{}
 	abstractType.NewBasicBox(draw)
 
 	stage.Canvas.BeginPath()
