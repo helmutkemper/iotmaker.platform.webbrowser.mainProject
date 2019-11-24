@@ -8,12 +8,622 @@
             <set />
           </value>
         </entry>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/NewCanvasWith2DContext.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/addColorStop.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/appendToDocumentBody.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/arc.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/arcTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/beginPath.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/bezierCurveTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/clearRect.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/clip.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/closePath.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/const.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/createEvent.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/createImageData.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/createLinearGradient.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/createPattern.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/createRadialGradient.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/data.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/drawImage.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/fill.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/fillRect.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/fillStyle.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/fillText.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/font.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/getCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/getContext.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/getImageData.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/globalAlpha.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/globalCompositeOperation.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/height.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/initializeContext2DById.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/initializeContext3DById.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/isPointInPath.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/jsCall.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/jsGet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/jsSet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/lineCap.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/lineJoin.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/lineTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/lineWidth.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/measureText.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/miterLimit.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/moveTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/putImageData.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/quadraticCurveTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/rect.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/restore.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/rotate.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/save.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/scale.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/setTransform.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/shadowBlur.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/shadowColor.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/shadowOffsetX.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/shadowOffsetY.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/stroke.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/strokeRect.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/strokeStyle.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/strokeText.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/textAlign.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/textBaseline.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/toDataURL.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/transform.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/translate.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/typeCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/typeCanvasCapRulle.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/typeFillRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/typeJsValue.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/typePlatform.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/typeRepeatRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/canvas/width.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.ColorStylesFunctions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.CompositingFunctions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.ImagDrawingFunctions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.LineStyleFunctions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.PixelManipulationFunctions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.RectangleFunctions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.TextFunctions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.TransformationsFunctions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvas.pathFunctions.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvasFont.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeCanvasImageDrawing.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typeJsValue.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typePixel.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser/typePlatformBasicType.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/_stage.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/_typeDraw.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/_typeInterfaceDraw.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/abstractType/typeBasicBox.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/arc.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/arcTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/beginPath.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/closePath.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/lineTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/moveTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/browserCanvas/typeCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/canvas/moveTo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/canvas/typeCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/interfaceGraphic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/stage.go">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeBasicBox.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeDraw.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeInterfaceCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeInterfaceDraw.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeInterfaceGraphic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeStage.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCanvas.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCanvasCapRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCanvasCompositeOperationsRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCanvasFillRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCanvasFontAlignRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCanvasJoinRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCanvasRepeatRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCanvasTextBaseLineRule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeCoordinate.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeDrawImage.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typeFont.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typePixel.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.types/typePlatformBasicType.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/util/util_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/main.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../simple/main.go">
           <value>
             <set />
           </value>
