@@ -4,6 +4,7 @@ package main
 
 import (
 	iotmaker_platform_webbrowser "github.com/helmutkemper/iotmaker.platform.webbrowser"
+	"github.com/helmutkemper/iotmaker.platform/abstractType"
 )
 
 func main() {
@@ -15,12 +16,8 @@ func main() {
 		1,
 	)
 
-	//var draw iotmaker_platform.ICanvas = &iotmaker_platform.Draw{}
-	//abstractType.NewBasicBox(draw)
+	abstractType.NewBasicBox(&stage.Canvas, "box", 1.0, 10, 10, 200, 200, 10, 3)
 
-	stage.Canvas.BeginPath()
-	stage.Canvas.MoveTo(0, 0)
-	stage.Canvas.LineTo(300, 300)
-	stage.Canvas.Stroke()
+	abstractType.NewLineTo(&stage.Canvas, "line", 1.0, 0, 0, 300, 300)
 
 }
