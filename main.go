@@ -16,8 +16,27 @@ func main() {
 		1,
 	)
 
-	abstractType.NewBasicBox(&stage.Canvas, "box", 1.0, 10, 10, 200, 200, 10, 3)
+	abstractType.NewBasicBox(
+		&stage.Canvas,
+		"box",
+		1.0,
+		10,
+		10,
+		200,
+		200,
+		50,
+		3,
+	)
 
-	abstractType.NewLineTo(&stage.Canvas, "line", 1.0, 0, 0, 300, 300, 1)
+	abstractType.NewLineTo(
+		&stage.Canvas,
+		"line",
+		1.0,
+		0,
+		0,
+		300,
+		300,
+		1,
+	)
 
 }
