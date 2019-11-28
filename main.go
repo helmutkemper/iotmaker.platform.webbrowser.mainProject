@@ -20,11 +20,11 @@ func main() {
 	)
 
 	shadowBox := shadow.NewShadow(color.RGBA{R: 120, G: 0, B: 0, A: 255}, 10, 4, 4)
-	coordinateBox := gradient.NewCoordinate(20, 50, 100, 100)
-	colorWhite := gradient.NewColorPosition(color.RGBA{R: 0xFF, G: 0xFF, B: 0xFF, A: 0xFF}, 0)
+	coordinateBox := gradient.NewCoordinate(0, 0, 120, 150)
+	colorWhite := gradient.NewColorPosition(color.RGBA{R: 0xFF, G: 0xFF, B: 0xFF, A: 0x00}, 0.2)
 	colorBlack := gradient.NewColorPosition(color.RGBA{R: 0x00, G: 0x00, B: 0x00, A: 0xFF}, 1)
-	colorList := gradient.NewColorList(colorWhite, colorBlack)
-	gradientBox := gradient.NewGradientLinear(coordinateBox, colorList)
+	colorList := gradient.NewColorList(colorBlack, colorWhite)
+	gradientBox := gradient.NewStrokeGradientLinear(coordinateBox, colorList)
 
 	abstractType.NewBasicBox(
 		abstractType.BasicBox{
