@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/_iotmaker.types" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.IDraw" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.coordinate" vcs="Git" />

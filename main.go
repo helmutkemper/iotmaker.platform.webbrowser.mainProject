@@ -27,19 +27,49 @@ func main() {
 				Width:     100,
 				Height:    100,
 				Border:    5,
-				LineWidth: 2,
+				LineWidth: 5,
 				Density:   1.0,
 			},
 			Shadow: abstractType.Shadow{
+				//ColorEnable: true,
 				Color: color.RGBA{
-					R: 0,
+					R: 50,
 					G: 0,
 					B: 0,
-					A: 50,
+					A: 128,
 				},
-				Blur:    3,
-				OffsetX: 1,
-				OffsetY: 1,
+
+				BlurEnable: true,
+				Blur:       8,
+
+				OffsetXEnable: true,
+				OffsetX:       5,
+
+				OffsetYEnable: true,
+				OffsetY:       5,
+			},
+			Gradient: abstractType.Gradient{
+				Type: 0,
+				ColorList: []abstractType.ColorStop{
+					{
+						Color: color.RGBA{
+							R: 0,
+							G: 0,
+							B: 0,
+							A: 255,
+						},
+						Stop: 0,
+					},
+					{
+						Color: color.RGBA{
+							R: 0,
+							G: 0,
+							B: 0,
+							A: 0,
+						},
+						Stop: 1,
+					},
+				},
 			},
 		},
 	)
