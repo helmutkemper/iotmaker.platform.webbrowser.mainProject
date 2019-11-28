@@ -5,6 +5,7 @@ package main
 import (
 	iotmaker_platform_webbrowser "github.com/helmutkemper/iotmaker.platform.webbrowser"
 	"github.com/helmutkemper/iotmaker.platform/abstractType"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
 	"image/color"
 )
@@ -19,6 +20,11 @@ func main() {
 	)
 
 	shadowBox := shadow.NewShadow(color.RGBA{R: 120, G: 0, B: 0, A: 255}, 10, 4, 4)
+	coordinateBox := gradient.NewCoordinate(20, 50, 100, 100)
+	colorWhite := gradient.NewColorPosition(color.RGBA{R: 0xFF, G: 0xFF, B: 0xFF, A: 0xFF}, 0)
+	colorBlack := gradient.NewColorPosition(color.RGBA{R: 0x00, G: 0x00, B: 0x00, A: 0xFF}, 1)
+	colorList := gradient.NewColorList(colorWhite, colorBlack)
+	gradientBox := gradient.NewGradientLinear(coordinateBox, colorList)
 
 	abstractType.NewBasicBox(
 		abstractType.BasicBox{
@@ -33,30 +39,8 @@ func main() {
 				LineWidth: 5,
 				Density:   1.0,
 			},
-			Shadow: shadowBox,
-			Gradient: abstractType.Gradient{
-				Type: 0,
-				ColorList: []abstractType.ColorStop{
-					{
-						Color: color.RGBA{
-							R: 0,
-							G: 0,
-							B: 0,
-							A: 255,
-						},
-						Stop: 0,
-					},
-					{
-						Color: color.RGBA{
-							R: 0,
-							G: 0,
-							B: 0,
-							A: 0,
-						},
-						Stop: 1,
-					},
-				},
-			},
+			Shadow:   shadowBox,
+			Gradient: gradientBox,
 		},
 	)
 
