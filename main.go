@@ -3,7 +3,7 @@
 package main
 
 import (
-	iotmaker_platform_webbrowser "github.com/helmutkemper/iotmaker.platform.webbrowser"
+	webBrowser "github.com/helmutkemper/iotmaker.platform.webbrowser"
 	"github.com/helmutkemper/iotmaker.platform/abstractType"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
@@ -12,7 +12,7 @@ import (
 
 func main() {
 
-	_, stage := iotmaker_platform_webbrowser.NewStage(
+	_, stage := webBrowser.NewStage(
 		"stage",
 		300,
 		300,
