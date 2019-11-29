@@ -8,7 +8,6 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
-	"image/color"
 )
 
 func main() {
@@ -20,7 +19,7 @@ func main() {
 		1,
 	)
 
-	shadowBox := shadow.NewShadow(color.RGBA{R: 120, G: 0, B: 0, A: 255}, 10, 4, 4)
+	shadowBox := shadow.NewShadow(colornames.DarkblueHalfTransparent, 5, 2, 2)
 	coordinateBox := gradient.NewCoordinate(0, 0, 120, 150)
 	colorWhite := gradient.NewColorPosition(colornames.WhiteTransparent, 0.2)
 	colorBlack := gradient.NewColorPosition(colornames.Black, 1)
