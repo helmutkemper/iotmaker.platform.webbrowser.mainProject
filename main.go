@@ -39,6 +39,24 @@ func main() {
 				LineWidth: 5,
 				Density:   1.0,
 			},
+			//Shadow:   shadowBox,
+			//Gradient: gradientBox,
+		},
+	)
+
+	abstractType.NewBasicBox(
+		abstractType.BasicBox{
+			Platform: &stage.Canvas,
+			Id:       "line",
+			Dimensions: abstractType.DimensionsBasicBox{
+				X:         20 + 50,
+				Y:         50 + 50,
+				Width:     100,
+				Height:    100,
+				Border:    5,
+				LineWidth: 5,
+				Density:   1.0,
+			},
 			Shadow:   shadowBox,
 			Gradient: gradientBox,
 		},
