@@ -19,7 +19,10 @@ func main() {
 		1,
 	)
 
-	shadowBox := shadow.NewShadow(colornames.DarkblueHalfTransparent, 5, 2, 2)
+	colorDarkBlue := colornames.Darkblue
+	colorDarkBlue.A = 0xff
+
+	shadowFilter := shadow.NewShadowFilter(colorDarkBlue, 5, 2, 2)
 	coordinateBox := gradient.NewCoordinate(0, 0, 120, 150)
 	colorWhite := gradient.NewColorPosition(colornames.WhiteTransparent, 0.2)
 	colorBlack := gradient.NewColorPosition(colornames.Black, 1)
@@ -39,8 +42,8 @@ func main() {
 				LineWidth: 5,
 				Density:   1.0,
 			},
-			//Shadow:   shadowBox,
-			//Gradient: gradientBox,
+			//Shadow:   &shadowFilter,
+			//Gradient: &gradientBox,
 		},
 	)
 
@@ -57,7 +60,7 @@ func main() {
 				LineWidth: 5,
 				Density:   1.0,
 			},
-			Shadow:   shadowBox,
+			Shadow:   shadowFilter,
 			Gradient: gradientBox,
 		},
 	)
