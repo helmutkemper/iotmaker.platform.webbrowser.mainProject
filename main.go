@@ -3,6 +3,7 @@
 package main
 
 import (
+	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	webBrowser "github.com/helmutkemper/iotmaker.platform.webbrowser"
 	"github.com/helmutkemper/iotmaker.platform/abstractType"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
@@ -12,22 +13,26 @@ import (
 
 func main() {
 
-	_, stage := webBrowser.NewStage(
+	var density = 2.0
+	var densityManager coordinateManager.IDensity = &coordinateManager.Density{}
+
+	stage := webBrowser.NewStage(
 		"stage",
 		300,
 		300,
-		1,
+		density,
+		densityManager,
 	)
 
 	colorDarkBlue := colornames.Darkblue
-	colorDarkBlue.A = 0xff
 
-	shadowFilter := shadow.NewShadowFilter(colorDarkBlue, 5, 2, 2)
-	coordinateBox := gradient.NewCoordinate(0, 0, 120, 150)
+	shadowFilter := shadow.NewShadowFilter(colorDarkBlue, 5, 2, 2, density, densityManager)
+	coordinateP0 := gradient.NewPoint(0, 0, density, densityManager)
+	coordinateP1 := gradient.NewPoint(120, 150, density, densityManager)
 	colorWhite := gradient.NewColorPosition(colornames.WhiteTransparent, 0.2)
 	colorBlack := gradient.NewColorPosition(colornames.Black, 1)
 	colorList := gradient.NewColorList(colorBlack, colorWhite)
-	gradientBox := gradient.NewStrokeGradientLinear(coordinateBox, colorList)
+	gradientBox := gradient.NewGradientLinearToStroke(coordinateP0, coordinateP1, colorList)
 
 	abstractType.NewBasicBox(
 		abstractType.BasicBox{
@@ -40,7 +45,7 @@ func main() {
 				Height:    100,
 				Border:    5,
 				LineWidth: 5,
-				Density:   1.0,
+				Density:   density,
 			},
 			//Shadow:   &shadowFilter,
 			//Gradient: &gradientBox,
@@ -58,7 +63,7 @@ func main() {
 				Height:    100,
 				Border:    5,
 				LineWidth: 5,
-				Density:   1.0,
+				Density:   density,
 			},
 			Shadow:   shadowFilter,
 			Gradient: gradientBox,
