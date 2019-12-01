@@ -5,7 +5,7 @@ package main
 import (
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	webBrowser "github.com/helmutkemper/iotmaker.platform.webbrowser"
-	"github.com/helmutkemper/iotmaker.platform/abstractType"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
@@ -32,45 +32,12 @@ func main() {
 	colorWhite := gradient.NewColorPosition(colornames.WhiteTransparent, 0.2)
 	colorBlack := gradient.NewColorPosition(colornames.Black, 1)
 	colorList := gradient.NewColorList(colorBlack, colorWhite)
-	gradientBox := gradient.NewGradientLinearToStroke(coordinateP0, coordinateP1, colorList)
+	gradientFilter := gradient.NewGradientLinearToStroke(coordinateP0, coordinateP1, colorList)
 
-	abstractType.NewBasicBox(
-		abstractType.BasicBox{
-			Platform: &stage.Canvas,
-			Id:       "line",
-			Dimensions: abstractType.DimensionsBasicBox{
-				X:         20,
-				Y:         50,
-				Width:     100,
-				Height:    100,
-				Border:    5,
-				LineWidth: 5,
-				Density:   density,
-			},
-			//Shadow:   &shadowFilter,
-			//Gradient: &gradientBox,
-		},
-	)
+	basicBox.NewBasicBox(&stage.Canvas, "bbox_1", 20, 50, 100, 100, 5, 5, nil, nil, density, densityManager)
+	basicBox.NewBasicBox(&stage.Canvas, "bbox_2", 20+50, 50+50, 100, 100, 10, 8, shadowFilter, gradientFilter, density, densityManager)
 
-	abstractType.NewBasicBox(
-		abstractType.BasicBox{
-			Platform: &stage.Canvas,
-			Id:       "line",
-			Dimensions: abstractType.DimensionsBasicBox{
-				X:         20 + 50,
-				Y:         50 + 50,
-				Width:     100,
-				Height:    100,
-				Border:    5,
-				LineWidth: 5,
-				Density:   density,
-			},
-			Shadow:   shadowFilter,
-			Gradient: gradientBox,
-		},
-	)
-
-	abstractType.NewLineTo(
+	/*abstractType.NewLineTo(
 		&stage.Canvas,
 		"line",
 		1.0,
@@ -79,6 +46,6 @@ func main() {
 		300,
 		300,
 		1,
-	)
+	)*/
 
 }
