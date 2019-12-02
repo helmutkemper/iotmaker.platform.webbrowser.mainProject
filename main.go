@@ -5,7 +5,8 @@ package main
 import (
 	"fmt"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
-	webBrowser "github.com/helmutkemper/iotmaker.platform.webbrowser"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/document"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
@@ -17,7 +18,10 @@ func main() {
 	var density = 3.0
 	var densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 
-	stage := webBrowser.NewStage(
+	browserDocument := document.NewDocument()
+
+	stage := canvas.NewStage(
+		browserDocument,
 		"stage",
 		300,
 		300,
