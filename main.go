@@ -10,14 +10,13 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
 )
 
 func main() {
 
 	done := make(chan struct{}, 0)
 
-	var density = 1.0
+	var density = 3.0
 	var densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 
 	browserDocument := document.NewDocument()
@@ -31,10 +30,10 @@ func main() {
 		densityManager,
 	)
 
-	colorDarkBlue := colornames.Darkblue
-	shadowFilter := shadow.NewShadowFilter(colorDarkBlue, 5, 2, 2, density, densityManager)
+	//colorDarkBlue := colornames.Darkblue
+	//shadowFilter := shadow.NewShadowFilter(colorDarkBlue, 5, 2, 2, density, densityManager)
 
-	colorWhite := gradient.NewColorPosition(colornames.WhiteTransparent, 0.2)
+	colorWhite := gradient.NewColorPosition(colornames.WhiteTransparent, 0.5)
 	colorBlack := gradient.NewColorPosition(colornames.Black, 1)
 	colorList := gradient.NewColorList(colorBlack, colorWhite)
 
@@ -42,8 +41,22 @@ func main() {
 	coordinateP1 := gradient.NewPoint(120, 150, density, densityManager)
 	gradientFilter := gradient.NewGradientLinearToStroke(coordinateP0, coordinateP1, colorList)
 
-	bx := basicBox.NewBasicBox(&stage.Canvas, &stage.ScratchPad, "bbox_1", 20, 50, 100, 100, 5, 5, nil, nil, density, densityManager)
-	basicBox.NewBasicBox(&stage.Canvas, &stage.ScratchPad, "bbox_2", 20+50, 50+50, 100, 100, 10, 8, shadowFilter, gradientFilter, density, densityManager)
+	basicBox.NewBasicBox(&stage.Canvas, &stage.ScratchPad, "bbox_1", 20, 50, 100, 100, 5, 5, nil, nil, density, densityManager)
+	bx2 := basicBox.NewBasicBox(
+		&stage.Canvas,
+		&stage.ScratchPad,
+		"bbox_2",
+		20+50,
+		50+50,
+		100,
+		100,
+		10,
+		8,
+		nil, //shadowFilter,
+		gradientFilter,
+		density,
+		densityManager,
+	)
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
@@ -58,7 +71,8 @@ func main() {
 		1,
 	)*/
 
-	mouse.AddFunctionPointer(bx.GetAlphaChannel)
+	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
+	mouse.AddFunctionPointer(bx2.GetAlphaChannel)
 	browserDocument.SetMouseMoveListener(mouse.GetDefaultFunction())
 
 	<-done
