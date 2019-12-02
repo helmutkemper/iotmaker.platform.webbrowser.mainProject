@@ -3,6 +3,7 @@
 package main
 
 import (
+	"fmt"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	webBrowser "github.com/helmutkemper/iotmaker.platform.webbrowser"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
@@ -34,10 +35,10 @@ func main() {
 	colorList := gradient.NewColorList(colorBlack, colorWhite)
 	gradientFilter := gradient.NewGradientLinearToStroke(coordinateP0, coordinateP1, colorList)
 
-	basicBox.NewBasicBox(&stage.Canvas, &stage.ScratchPad, "bbox_1", 20, 50, 100, 100, 5, 5, nil, nil, density, densityManager)
+	bx := basicBox.NewBasicBox(&stage.Canvas, &stage.ScratchPad, "bbox_1", 20, 50, 100, 100, 5, 5, nil, nil, density, densityManager)
 	basicBox.NewBasicBox(&stage.Canvas, &stage.ScratchPad, "bbox_2", 20+50, 50+50, 100, 100, 10, 8, shadowFilter, gradientFilter, density, densityManager)
 
-	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
+	fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
 	/*abstractType.NewLineTo(
 		&stage.Canvas,
