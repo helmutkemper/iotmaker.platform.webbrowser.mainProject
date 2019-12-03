@@ -3,6 +3,7 @@
 package main
 
 import (
+	"fmt"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/document"
@@ -72,8 +73,12 @@ func main() {
 	)*/
 
 	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
-	mouse.AddFunctionPointer(bx2.GetAlphaChannel)
+	mouse.AddFunctionPointer(bx2.GetAlphaChannel, bateu)
 	browserDocument.SetMouseMoveListener(mouse.GetDefaultFunction())
 
 	<-done
+}
+
+func bateu(x, y int) {
+	fmt.Printf("bateu nas coordenadas x:%v, y:%v\n", x, y)
 }
