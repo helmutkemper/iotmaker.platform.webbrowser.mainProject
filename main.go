@@ -3,6 +3,7 @@
 package main
 
 import (
+	"fmt"
 	iotmaker_platform_IDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
@@ -85,11 +86,11 @@ func main() {
 	)*/
 
 	browserDocument.SetMouseMoveListener(mouse.GetDefaultFunction())
-	mouse.AddFunctionPointer(bx2.GetAlphaChannel, bateu)
+	mouse.AddFunctionPointer(bx2.GetCollisionBySimpleBox, bateu)
 
 	<-done
 }
 
-func bateu(x, y int) {
-
+func bateu(x, y int, collision bool) {
+	fmt.Printf("bateu: %v\n", collision)
 }
