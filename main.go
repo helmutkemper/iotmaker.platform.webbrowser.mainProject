@@ -3,7 +3,6 @@
 package main
 
 import (
-	"fmt"
 	iotmaker_platform_IDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
@@ -91,6 +90,16 @@ func main() {
 	<-done
 }
 
+var lastCursor bool
+
 func bateu(x, y int, collision bool) {
-	fmt.Printf("bateu: %v\n", collision)
+	if collision == false && lastCursor != collision {
+		stage.SelfElement.Call("setAttribute", "style", "cursor: auto")
+	} else if collision == true && lastCursor != collision {
+		stage.SelfElement.Call("setAttribute", "style", "cursor: pointer")
+	}
+
+	lastCursor = collision
+
+	//fmt.Printf("bateu: %v\n", collision)
 }
