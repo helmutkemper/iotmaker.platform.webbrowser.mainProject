@@ -16,8 +16,6 @@ import (
 )
 
 var (
-	colorShadow    color.RGBA
-	filter         iotmaker_platform_IDraw.IFilterShadowInterface
 	density                                   = 3.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
@@ -31,8 +29,11 @@ func main() {
 
 	browserDocument := document.NewDocument()
 
-	colorShadow = colornames.DarkblueTransparent
-	filter = shadow.NewShadowFilter(colorShadow, 5, 2, 2, density, densityManager)
+	var colorShadow color.RGBA = colornames.DarkblueTransparent
+	var blur int = 5
+	var offsetX int = 2
+	var offsetY int = 2
+	var filter iotmaker_platform_IDraw.IFilterShadowInterface = shadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
 
 	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
 
@@ -91,22 +92,4 @@ func main() {
 
 func bateu(x, y int) {
 
-	colorShadow = colornames.Darkred
-	filter = shadow.NewShadowFilter(colorShadow, 5, 2, 2, density, densityManager)
-
-	bx2 = basicBox.NewBasicBox(
-		&stage.Canvas,
-		&stage.ScratchPad,
-		"bbox_2",
-		20+50,
-		50+50,
-		100,
-		100,
-		10,
-		8,
-		filter,
-		gradientFilter,
-		density,
-		densityManager,
-	)
 }
