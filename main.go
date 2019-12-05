@@ -93,10 +93,10 @@ func main() {
 var lastCursor bool
 
 func bateu(x, y int, collision bool) {
-	if collision == false && lastCursor != collision {
-		stage.SelfElement.Call("setAttribute", "style", "cursor: auto")
-	} else if collision == true && lastCursor != collision {
-		stage.SelfElement.Call("setAttribute", "style", "cursor: pointer")
+	if collision == false {
+		mouse.SetCursor(stage.SelfElement, mouse.KCursorAuto)
+	} else {
+		mouse.SetCursor(stage.SelfElement, mouse.KCursorColResize)
 	}
 
 	lastCursor = collision
