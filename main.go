@@ -7,17 +7,18 @@ import (
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/document"
-	"github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
+	webBrouserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
+	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"image/color"
 )
 
 var (
-	density                                   = 4.0
+	density                                   = 3.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
@@ -72,7 +73,7 @@ func main() {
 		densityManager,
 	)
 
-	selectBox.NewResizeBoxFromBasicBob(bx2, 0, 0, 6, 6, 1, density, densityManager)
+	selectBox.NewResizeBoxFromBasicBob(bx2, -3, -3, 6, 6, 3, density, densityManager)
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
@@ -87,8 +88,9 @@ func main() {
 		1,
 	)*/
 
-	browserDocument.SetMouseMoveListener(mouse.GetDefaultFunction())
-	mouse.AddFunctionPointer(bx2.GetCollisionBySimpleBox, bateu)
+	browserDocument.SetMouseMoveListener(webBrouserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
+	mouse.SetPlatform(mouse.KPlatformWebBrowser)
+	mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBySimpleBox, bateu)
 
 	<-done
 }
@@ -97,9 +99,9 @@ var lastCursor bool
 
 func bateu(x, y int, collision bool) {
 	if collision == false {
-		mouse.SetCursor(stage.SelfElement, mouse.KCursorAuto)
+		webBrouserMouse.SetCursor(stage.SelfElement, mouse.KCursorAuto)
 	} else {
-		mouse.SetCursor(stage.SelfElement, mouse.KCursorColResize)
+		webBrouserMouse.SetCursor(stage.SelfElement, mouse.KCursorColResize)
 	}
 
 	lastCursor = collision
