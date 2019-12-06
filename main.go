@@ -17,7 +17,7 @@ import (
 )
 
 var (
-	density                                   = 3.0
+	density                                   = 4.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
@@ -72,7 +72,7 @@ func main() {
 		densityManager,
 	)
 
-	selectBox.NewResizeBoxFromBasicBob(bx2, 2, 2, 4, 4, 0, density, densityManager)
+	selectBox.NewResizeBoxFromBasicBob(bx2, 0, 0, 6, 6, 1, density, densityManager)
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
