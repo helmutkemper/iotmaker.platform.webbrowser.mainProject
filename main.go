@@ -54,7 +54,7 @@ func main() {
 
 	coordinateP0 := gradient.NewPoint(0, 0, density, densityManager)
 	coordinateP1 := gradient.NewPoint(120, 150, density, densityManager)
-	gradientFilter = gradient.NewGradientLinearToStroke(coordinateP0, coordinateP1, colorList)
+	gradientFilter = gradient.NewGradientLinearToFillAndStroke(coordinateP0, coordinateP1, colorList)
 
 	basicBox.NewBasicBox(&stage.Canvas, &stage.ScratchPad, "bbox_1", 20, 50, 100, 100, 5, 5, nil, nil, density, densityManager)
 	bx2 = basicBox.NewBasicBox(
