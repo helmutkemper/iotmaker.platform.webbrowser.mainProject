@@ -72,7 +72,7 @@ func main() {
 		densityManager,
 	)
 
-	selectBox.NewResizeBoxFromBasicBob(bx2, -2, -2, 4, 4, 2, density, densityManager)
+	selectBox.NewResizeBoxFromBasicBob(bx2, 2, 2, 4, 4, 0, density, densityManager)
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
