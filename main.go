@@ -11,6 +11,7 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
 	"image/color"
 )
@@ -46,7 +47,7 @@ func main() {
 		densityManager,
 	)
 
-	colorWhite := gradient.NewColorPosition(colornames.WhiteTransparent, 0.5)
+	colorWhite := gradient.NewColorPosition(colornames.Red, 0.5)
 	colorBlack := gradient.NewColorPosition(colornames.Black, 1)
 	colorList := gradient.NewColorList(colorBlack, colorWhite)
 
@@ -70,6 +71,8 @@ func main() {
 		density,
 		densityManager,
 	)
+
+	selectBox.NewResizeBoxFromBasicBob(bx2, -2, -2, 4, 4, 2, density, densityManager)
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
