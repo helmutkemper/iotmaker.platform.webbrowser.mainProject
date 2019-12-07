@@ -7,7 +7,7 @@ import (
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/document"
-	webBrouserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
+	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
@@ -73,7 +73,7 @@ func main() {
 		densityManager,
 	)
 
-	selectBox.NewResizeBoxFromBasicBob(bx2, -3, -3, 6, 6, 3, density, densityManager)
+	selectBox.NewResizeBoxFromBasicBob(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
@@ -88,7 +88,7 @@ func main() {
 		1,
 	)*/
 
-	browserDocument.SetMouseMoveListener(webBrouserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
+	browserDocument.SetMouseMoveListener(webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	mouse.SetPlatform(mouse.KPlatformWebBrowser)
 	mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBySimpleBox, bateu)
 
@@ -99,9 +99,9 @@ var lastCursor bool
 
 func bateu(x, y int, collision bool) {
 	if collision == false {
-		webBrouserMouse.SetCursor(stage.SelfElement, mouse.KCursorAuto)
+		webBrowserMouse.SetCursor(stage.SelfElement, mouse.KCursorAuto)
 	} else {
-		webBrouserMouse.SetCursor(stage.SelfElement, mouse.KCursorColResize)
+		webBrowserMouse.SetCursor(stage.SelfElement, mouse.KCursorColResize)
 	}
 
 	lastCursor = collision
