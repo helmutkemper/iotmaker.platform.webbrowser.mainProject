@@ -117,7 +117,7 @@ func main() {
 		70,
 		48,
 		60,
-		4*20,
+		4*3,
 		density,
 		densityManager,
 	)
