@@ -7,7 +7,9 @@ import (
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/document"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/html"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
+	"github.com/helmutkemper/iotmaker.platform/abstractType"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
@@ -18,7 +20,7 @@ import (
 )
 
 var (
-	density                                   = 3.0
+	density                                   = 1.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
@@ -47,6 +49,23 @@ func main() {
 		density,
 		densityManager,
 	)
+
+	img := html.NewImage(
+		browserDocument,
+		"player",
+		"./player_big.png",
+		480,
+		60,
+		true,
+		true,
+		density,
+		densityManager,
+	)
+	i := abstractType.Image{
+		Platform: &stage.Canvas,
+		Img:      img,
+	}
+	i.Crete()
 
 	colorWhite := gradient.NewColorPosition(colornames.Red, 0.5)
 	colorBlack := gradient.NewColorPosition(colornames.Black, 1)
