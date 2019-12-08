@@ -9,18 +9,19 @@ import (
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/document"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/html"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
-	"github.com/helmutkemper/iotmaker.platform/abstractType"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/image"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"image/color"
+	"time"
 )
 
 var (
-	density                                   = 1.0
+	density                                   = 3.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
@@ -56,16 +57,11 @@ func main() {
 		"./player_big.png",
 		480,
 		60,
-		true,
+		false,
 		true,
 		density,
 		densityManager,
 	)
-	i := abstractType.Image{
-		Platform: &stage.Canvas,
-		Img:      img,
-	}
-	i.Crete()
 
 	colorWhite := gradient.NewColorPosition(colornames.Red, 0.5)
 	colorBlack := gradient.NewColorPosition(colornames.Black, 1)
@@ -108,6 +104,24 @@ func main() {
 	)
 
 	selectBox.NewResizeBoxFromBasicBob(bx2, -3, -3, 6, 6, 1, density, densityManager)
+
+	i := image.NewMultipleSprites(
+		&stage.Canvas,
+		img,
+		48,
+		60,
+		0,
+		7,
+		90*time.Millisecond,
+		45,
+		70,
+		48,
+		60,
+		4*20,
+		density,
+		densityManager,
+	)
+	i.Crete()
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
