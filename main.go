@@ -3,7 +3,7 @@
 package main
 
 import (
-	iotmaker_platform_IDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
+	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
@@ -29,8 +29,8 @@ var (
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
-	gradientFilter iotmaker_platform_IDraw.IFilterGradientInterface
-	html           iotmaker_platform_IDraw.IHtml
+	gradientFilter iotmakerPlatformIDraw.IFilterGradientInterface
+	html           iotmakerPlatformIDraw.IHtml
 )
 
 func main() {
@@ -44,7 +44,7 @@ func main() {
 	var blur int = 5
 	var offsetX int = 2
 	var offsetY int = 2
-	var filter iotmaker_platform_IDraw.IFilterShadowInterface = shadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
+	var filter iotmakerPlatformIDraw.IFilterShadowInterface = shadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
 
 	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
 
@@ -55,15 +55,6 @@ func main() {
 		300,
 		density,
 		densityManager,
-	)
-
-	img := factoryBrowserHtml.NewImage(
-		browserDocument.SelfDocument,
-		map[string]interface{}{
-			"id":  "player",
-			"src": "./player_big.png",
-		},
-		false,
 	)
 
 	colorWhite := factoryColor.NewColorPosition(colornames.Red, 0.5)
@@ -107,6 +98,16 @@ func main() {
 	)
 
 	selectBox.NewResizeBoxFromBasicBob(bx2, -3, -3, 6, 6, 1, density, densityManager)
+
+	img := factoryBrowserHtml.NewImage(
+		browserDocument.SelfDocument,
+		map[string]interface{}{
+			"id":  "player",
+			"src": "./player_big.png",
+		},
+		false,
+		false,
+	)
 
 	i := factoryImage.NewMultipleSpritesImage(
 		&stage.Canvas,
