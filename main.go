@@ -6,13 +6,16 @@ import (
 	iotmaker_platform_IDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
-	"github.com/helmutkemper/iotmaker.platform.webbrowser/document"
-	"github.com/helmutkemper/iotmaker.platform.webbrowser/html"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryDocument"
+	webBrowserFactoryImage "github.com/helmutkemper/iotmaker.platform.webbrowser/factoryImage"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryColor"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryGradient"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryImage"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryPoint"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
@@ -32,7 +35,7 @@ func main() {
 
 	done := make(chan struct{}, 0)
 
-	browserDocument := document.NewDocument()
+	browserDocument := factoryDocument.NewDocument()
 
 	var colorShadow color.RGBA = colornames.DarkblueTransparent
 	var blur int = 5
@@ -42,7 +45,7 @@ func main() {
 
 	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
 
-	stage = canvas.NewStage(
+	stage = factoryStage.NewStage(
 		browserDocument,
 		"stage",
 		300,
@@ -51,7 +54,8 @@ func main() {
 		densityManager,
 	)
 
-	img := html.NewImage(
+	// fixme, fazer isto pata o canvas
+	img := webBrowserFactoryImage.NewImage(
 		browserDocument,
 		"player",
 		"./player_big.png",
@@ -63,13 +67,13 @@ func main() {
 		densityManager,
 	)
 
-	colorWhite := gradient.NewColorPosition(colornames.Red, 0.5)
-	colorBlack := gradient.NewColorPosition(colornames.Black, 1)
-	colorList := gradient.NewColorList(colorBlack, colorWhite)
+	colorWhite := factoryColor.NewColorPosition(colornames.Red, 0.5)
+	colorBlack := factoryColor.NewColorPosition(colornames.Black, 1)
+	colorList := factoryColor.NewColorList(colorBlack, colorWhite)
 
-	coordinateP0 := gradient.NewPoint(0, 0, density, densityManager)
-	coordinateP1 := gradient.NewPoint(120, 150, density, densityManager)
-	gradientFilter = gradient.NewGradientLinearToFillAndStroke(coordinateP0, coordinateP1, colorList)
+	coordinateP0 := factoryPoint.NewPoint(0, 0, density, densityManager)
+	coordinateP1 := factoryPoint.NewPoint(120, 150, density, densityManager)
+	gradientFilter = factoryGradient.NewGradientLinearToFillAndStroke(coordinateP0, coordinateP1, colorList)
 
 	basicBox.NewBasicBox(
 		&stage.Canvas,
