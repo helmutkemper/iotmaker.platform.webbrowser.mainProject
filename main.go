@@ -11,8 +11,8 @@ import (
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryImage"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/gradient"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/imageFabric"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
@@ -21,7 +21,7 @@ import (
 )
 
 var (
-	density                                   = 1.0
+	density                                   = 2.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
@@ -105,7 +105,7 @@ func main() {
 
 	selectBox.NewResizeBoxFromBasicBob(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
-	i := imageFabric.NewMultipleSpritesImage(
+	i := factoryImage.NewMultipleSpritesImage(
 		&stage.Canvas,
 		img,
 		48,
