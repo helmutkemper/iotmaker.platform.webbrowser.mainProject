@@ -5,10 +5,11 @@ package main
 import (
 	iotmaker_platform_IDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
-	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryDocument"
-	webBrowserFactoryImage "github.com/helmutkemper/iotmaker.platform.webbrowser/factoryImage"
-	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryStage"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserDocument"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserHtml"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
@@ -29,13 +30,15 @@ var (
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
 	gradientFilter iotmaker_platform_IDraw.IFilterGradientInterface
+	html           iotmaker_platform_IDraw.IHtml
 )
 
 func main() {
 
 	done := make(chan struct{}, 0)
 
-	browserDocument := factoryDocument.NewDocument()
+	html = &Html.Html{}
+	browserDocument := factoryBrowserDocument.NewDocument()
 
 	var colorShadow color.RGBA = colornames.DarkblueTransparent
 	var blur int = 5
@@ -45,7 +48,7 @@ func main() {
 
 	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
 
-	stage = factoryStage.NewStage(
+	stage = factoryBrowserStage.NewStage(
 		browserDocument,
 		"stage",
 		300,
@@ -54,17 +57,13 @@ func main() {
 		densityManager,
 	)
 
-	// fixme, fazer isto pata o canvas
-	img := webBrowserFactoryImage.NewImage(
-		browserDocument,
-		"player",
-		"./player_big.png",
-		480,
-		60,
+	img := factoryBrowserHtml.NewImage(
+		browserDocument.SelfDocument,
+		map[string]interface{}{
+			"id":  "player",
+			"src": "./player_big.png",
+		},
 		false,
-		true,
-		density,
-		densityManager,
 	)
 
 	colorWhite := factoryColor.NewColorPosition(colornames.Red, 0.5)
