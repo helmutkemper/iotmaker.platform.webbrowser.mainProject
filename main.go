@@ -21,7 +21,7 @@ import (
 )
 
 var (
-	density                                   = 2.0
+	density                                   = 1.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
@@ -57,7 +57,7 @@ func main() {
 		"./player_big.png",
 		480,
 		60,
-		true,
+		false,
 		true,
 		density,
 		densityManager,
@@ -105,21 +105,18 @@ func main() {
 
 	selectBox.NewResizeBoxFromBasicBob(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
-	i := imageFabric.NewMultipleSpritesImageWithLifeCycleRepeatLimit(
+	i := imageFabric.NewMultipleSpritesImage(
 		&stage.Canvas,
 		img,
 		48,
 		60,
 		0,
 		7,
-		500*time.Millisecond,
+		80*time.Millisecond,
 		45,
 		70,
 		48,
 		60,
-		2,
-		3000*time.Millisecond,
-		3,
 		density,
 		densityManager,
 	)
