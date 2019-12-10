@@ -9,13 +9,16 @@ import (
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserDocument"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserStage"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/fontFamily"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryColor"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryFont"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryGradient"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryImage"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryPoint"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryText"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
@@ -24,7 +27,7 @@ import (
 )
 
 var (
-	density                                   = 2.0
+	density                                   = 3.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
@@ -33,6 +36,8 @@ var (
 )
 
 func main() {
+
+	//todo: canvasDrawImage()
 
 	done := make(chan struct{}, 0)
 
@@ -63,6 +68,17 @@ func main() {
 	coordinateP0 := factoryPoint.NewPoint(0, 0, density, densityManager)
 	coordinateP1 := factoryPoint.NewPoint(120, 150, density, densityManager)
 	gradientFilter = factoryGradient.NewGradientLinearToFillAndStroke(coordinateP0, coordinateP1, colorList)
+
+	fontText := factoryFont.NewFont(20, "px", fontFamily.KVerdana, density, densityManager)
+	factoryText.NewText(
+		&stage.Canvas,
+		"Olá Mundo!",
+		fontText,
+		25,
+		25,
+		density,
+		densityManager,
+	)
 
 	basicBox.NewBasicBox(
 		&stage.Canvas,
