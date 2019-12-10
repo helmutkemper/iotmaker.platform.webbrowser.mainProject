@@ -96,17 +96,7 @@ func main() {
 		densityManager,
 	)
 
-	selectBox.NewResizeBoxFromBasicBob(bx2, -3, -3, 6, 6, 1, density, densityManager)
-
-	/*img := factoryBrowserHtml.NewImage(
-		browserDocument.SelfDocument,
-		map[string]interface{}{
-			"id":  "player",
-			"src": "./player_big.png",
-		},
-		false,
-		false,
-	)*/
+	selectBox.NewResizeBoxFromBasicBox(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
 	img := factoryImage.NewHtmlImage(
 		html,
