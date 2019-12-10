@@ -98,7 +98,7 @@ func main() {
 
 	selectBox.NewResizeBoxFromBasicBox(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
-	img := factoryImage.NewHtmlImage(
+	imgHtml := factoryImage.NewHtmlImage(
 		html,
 		browserDocument.SelfDocument,
 		map[string]interface{}{
@@ -111,7 +111,7 @@ func main() {
 
 	i := factoryImage.NewMultipleSpritesImage(
 		&stage.Canvas,
-		img,
+		imgHtml,
 		48,
 		60,
 		0,
