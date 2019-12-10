@@ -8,7 +8,6 @@ import (
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserDocument"
-	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserHtml"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
@@ -99,7 +98,7 @@ func main() {
 
 	selectBox.NewResizeBoxFromBasicBob(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
-	img := factoryBrowserHtml.NewImage(
+	/*img := factoryBrowserHtml.NewImage(
 		browserDocument.SelfDocument,
 		map[string]interface{}{
 			"id":  "player",
@@ -107,6 +106,17 @@ func main() {
 		},
 		false,
 		false,
+	)*/
+
+	img := factoryImage.NewHtmlImage(
+		html,
+		browserDocument.SelfDocument,
+		map[string]interface{}{
+			"id":  "player",
+			"src": "./player_big.png",
+		},
+		true,
+		true,
 	)
 
 	i := factoryImage.NewMultipleSpritesImage(
