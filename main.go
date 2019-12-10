@@ -70,7 +70,7 @@ func main() {
 	gradientFilter = factoryGradient.NewGradientLinearToFillAndStroke(coordinateP0, coordinateP1, colorList)
 
 	fontText := factoryFont.NewFont(20, "px", fontFamily.KVerdana, density, densityManager)
-	factoryText.NewText(
+	factoryText.NewTextWithFont(
 		&stage.Canvas,
 		"Olá Mundo!",
 		fontText,
