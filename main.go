@@ -27,7 +27,7 @@ import (
 )
 
 var (
-	density                                   = 1.0
+	density                                   = 3.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
@@ -44,8 +44,8 @@ func main() {
 	html = &Html.Html{}
 	browserDocument := factoryBrowserDocument.NewDocument()
 
-	var colorShadow color.RGBA = colornames.DarkblueTransparent
-	var blur int = 5
+	var colorShadow color.RGBA = colornames.BlackHalfTransparent
+	var blur int = 10
 	var offsetX int = 2
 	var offsetY int = 2
 	var filter iotmakerPlatformIDraw.IFilterShadowInterface = shadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
@@ -77,6 +77,8 @@ func main() {
 
 	factoryText.NewText(
 		&stage.Canvas,
+		filter,
+		gradientFilter,
 		"Olá Mundo!",
 		25,
 		20,
