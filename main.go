@@ -27,7 +27,7 @@ import (
 )
 
 var (
-	density                                   = 3.0
+	density                                   = 1.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &basicBox.BasicBox{}
 	stage                                     = canvas.Stage{}
