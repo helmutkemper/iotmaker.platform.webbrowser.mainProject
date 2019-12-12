@@ -18,9 +18,9 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryGradient"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryImage"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryPoint"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryShadow"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryText"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"time"
 )
@@ -37,6 +37,8 @@ var (
 func main() {
 
 	//todo: canvasDrawImage()
+	//todo: reset global gradient
+	//todo: reset global shadow
 
 	done := make(chan struct{}, 0)
 
@@ -47,7 +49,7 @@ func main() {
 	var blur int = 10
 	var offsetX int = 2
 	var offsetY int = 2
-	var filter = shadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
+	var filter = factoryShadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
 
 	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
 
@@ -69,7 +71,7 @@ func main() {
 	gradientFilter = factoryGradient.NewGradientLinearToFillAndStroke(coordinateP0, coordinateP1, colorList)
 
 	fontText := factoryFont.NewFont(15, "px", fontFamily.KVerdana, density, densityManager)
-	factoryFont.SetFontGlobal(
+	factoryFont.SetGlobal(
 		&stage.Canvas,
 		fontText,
 	)
