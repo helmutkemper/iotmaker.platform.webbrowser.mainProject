@@ -48,7 +48,7 @@ func main() {
 	var blur int = 10
 	var offsetX int = 2
 	var offsetY int = 2
-	var filter = factoryShadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
+	var shadowFilter = factoryShadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
 
 	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
 
@@ -77,8 +77,9 @@ func main() {
 
 	factoryText.NewText(
 		&stage.Canvas,
-		filter,
+		shadowFilter,
 		gradientFilter,
+		nil,
 		"Olá Mundo!",
 		25,
 		20,
@@ -89,7 +90,8 @@ func main() {
 	fontText = factoryFont.NewFont(15, "px", fontFamily.KArial, density, densityManager)
 	factoryText.NewTextWithFont(
 		&stage.Canvas,
-		filter,
+		nil,
+		nil,
 		gradientFilter,
 		fontText,
 		"Olá Mundo!",
@@ -103,6 +105,7 @@ func main() {
 	factoryBasicBox.NewBasicBox(
 		&stage.Canvas,
 		&stage.ScratchPad,
+		nil,
 		"bbox_1",
 		20,
 		50,
@@ -119,6 +122,7 @@ func main() {
 	bx2 = factoryBasicBox.NewBasicBox(
 		&stage.Canvas,
 		&stage.ScratchPad,
+		nil,
 		"bbox_2",
 		20+50,
 		50+50,
@@ -126,7 +130,7 @@ func main() {
 		100,
 		10,
 		8,
-		filter,
+		shadowFilter,
 		gradientFilter,
 		density,
 		densityManager,
@@ -146,7 +150,7 @@ func main() {
 		true,
 	)
 
-	i := factoryImage.NewMultipleSpritesImageAndClearDelta(
+	i := factoryImage.NewMultipleSpritesImage(
 		&stage.Canvas,
 		imgHtml,
 		48,
@@ -158,10 +162,6 @@ func main() {
 		70,
 		48,
 		60,
-		-10,
-		-10,
-		20,
-		23,
 		density,
 		densityManager,
 	)
