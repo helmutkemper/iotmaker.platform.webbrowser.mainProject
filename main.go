@@ -13,6 +13,7 @@ import (
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryBasicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryColor"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryFont"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryGradient"
@@ -99,7 +100,7 @@ func main() {
 	)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
-	basicBox.NewBasicBox(
+	factoryBasicBox.NewBasicBox(
 		&stage.Canvas,
 		&stage.ScratchPad,
 		"bbox_1",
@@ -115,7 +116,7 @@ func main() {
 		densityManager,
 	)
 
-	bx2 = basicBox.NewBasicBox(
+	bx2 = factoryBasicBox.NewBasicBox(
 		&stage.Canvas,
 		&stage.ScratchPad,
 		"bbox_2",
@@ -133,6 +134,7 @@ func main() {
 
 	selectBox.NewResizeBoxFromBasicBox(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
+	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 	imgHtml := factoryImage.NewHtmlImage(
 		html,
 		browserDocument.SelfDocument,
