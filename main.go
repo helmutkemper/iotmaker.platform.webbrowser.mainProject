@@ -74,7 +74,7 @@ func main() {
 		fontText,
 	)
 
-	factoryText.NewText(
+	factoryText.NewTextOutlineOnly(
 		&stage.Canvas,
 		filter,
 		gradientFilter,
