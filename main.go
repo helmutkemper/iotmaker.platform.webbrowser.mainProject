@@ -37,8 +37,6 @@ var (
 func main() {
 
 	//todo: canvasDrawImage()
-	//todo: reset global gradient
-	//todo: reset global shadow
 
 	done := make(chan struct{}, 0)
 
@@ -100,6 +98,7 @@ func main() {
 		densityManager,
 	)
 
+	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 	basicBox.NewBasicBox(
 		&stage.Canvas,
 		&stage.ScratchPad,
