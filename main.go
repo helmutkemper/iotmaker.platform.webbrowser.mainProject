@@ -91,8 +91,8 @@ func main() {
 	factoryText.NewTextWithFont(
 		&stage.Canvas,
 		nil,
+		colornames.Cadetblue,
 		nil,
-		gradientFilter,
 		fontText,
 		"Olá Mundo!",
 		25,
