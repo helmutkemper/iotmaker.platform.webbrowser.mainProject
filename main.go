@@ -22,7 +22,6 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/shadow"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
-	"image/color"
 	"time"
 )
 
@@ -44,11 +43,11 @@ func main() {
 	html = &Html.Html{}
 	browserDocument := factoryBrowserDocument.NewDocument()
 
-	var colorShadow color.RGBA = colornames.BlackHalfTransparent
+	var colorShadow = colornames.BlackHalfTransparent
 	var blur int = 10
 	var offsetX int = 2
 	var offsetY int = 2
-	var filter iotmakerPlatformIDraw.IFilterShadowInterface = shadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
+	var filter = shadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
 
 	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
 
@@ -131,7 +130,7 @@ func main() {
 		true,
 	)
 
-	i := factoryImage.NewMultipleSpritesImage(
+	i := factoryImage.NewMultipleSpritesImageAndClearDelta(
 		&stage.Canvas,
 		imgHtml,
 		48,
@@ -143,6 +142,10 @@ func main() {
 		70,
 		48,
 		60,
+		-10,
+		-10,
+		20,
+		23,
 		density,
 		densityManager,
 	)
