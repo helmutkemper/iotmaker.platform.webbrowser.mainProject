@@ -1,5 +1,6 @@
 // +build js
 
+//
 package main
 
 import (
@@ -158,7 +159,7 @@ func main() {
 		0,
 		7,
 		80*time.Millisecond,
-		45,
+		50,
 		70,
 		48,
 		60,
