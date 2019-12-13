@@ -24,6 +24,7 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/factoryShadow"
 	"github.com/helmutkemper/iotmaker.platform/factoryText"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
+	"image/color"
 	"time"
 )
 
@@ -70,7 +71,7 @@ func main() {
 	coordinateP1 := factoryPoint.NewPoint(120, 150, density, densityManager)
 	gradientFilter = factoryGradient.NewGradientLinearToFillAndStroke(coordinateP0, coordinateP1, colorList)
 
-	fontText := factoryFont.NewFont(15, "px", fontFamily.KVerdana, density, densityManager)
+	fontText := factoryFont.NewFont(15, "px", color.RGBA{}, fontFamily.KVerdana, density, densityManager)
 	factoryFont.SetGlobal(
 		&stage.Canvas,
 		fontText,
@@ -88,7 +89,7 @@ func main() {
 		densityManager,
 	)
 
-	fontText = factoryFont.NewFont(15, "px", fontFamily.KArial, density, densityManager)
+	fontText = factoryFont.NewFont(15, "px", color.RGBA{}, fontFamily.KArial, density, densityManager)
 	factoryText.NewTextWithFont(
 		&stage.Canvas,
 		nil,
@@ -103,7 +104,7 @@ func main() {
 	)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
-	/*factoryBasicBox.NewBasicBox(
+	factoryBasicBox.NewBasicBox(
 		&stage.Canvas,
 		&stage.ScratchPad,
 		nil,
@@ -118,7 +119,7 @@ func main() {
 		nil,
 		density,
 		densityManager,
-	)*/
+	)
 
 	bx2 = factoryBasicBox.NewBasicBox(
 		&stage.Canvas,
@@ -182,7 +183,6 @@ func main() {
 	)*/
 
 	browserDocument.SetMouseMoveListener(webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
-	mouse.SetPlatform(mouse.KPlatformWebBrowser)
 	mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBySimpleBox, bateu)
 
 	<-done
@@ -192,9 +192,9 @@ var lastCursor bool
 
 func bateu(x, y int, collision bool) {
 	if collision == false {
-		webBrowserMouse.SetCursor(stage.SelfElement, mouse.KCursorAuto)
+		webBrowserMouse.SetCursor(stage.SelfElement, webBrowserMouse.KCursorAuto)
 	} else {
-		webBrowserMouse.SetCursor(stage.SelfElement, mouse.KCursorColResize)
+		webBrowserMouse.SetCursor(stage.SelfElement, webBrowserMouse.KCursorColResize)
 	}
 
 	lastCursor = collision
