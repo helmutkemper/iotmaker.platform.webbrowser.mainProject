@@ -136,7 +136,7 @@ func main() {
 		densityManager,
 	)
 
-	selectBox.NewResizeBoxFromBasicBox(bx2, -5, -5, 5, 5, 3, density, densityManager)
+	selectBox.NewResizeBoxFromBasicBox(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 	imgHtml := factoryImage.NewHtmlImage(
