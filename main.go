@@ -3,6 +3,7 @@
 package main
 
 import (
+	"fmt"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
@@ -13,15 +14,15 @@ import (
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/basicBox"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryBasicBox"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryColor"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryFont"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryGradient"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryImage"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryPoint"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryShadow"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/factoryText"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
+	"github.com/helmutkemper/iotmaker.platform/factoryBasicBox"
+	"github.com/helmutkemper/iotmaker.platform/factoryColor"
+	"github.com/helmutkemper/iotmaker.platform/factoryFont"
+	"github.com/helmutkemper/iotmaker.platform/factoryGradient"
+	"github.com/helmutkemper/iotmaker.platform/factoryImage"
+	"github.com/helmutkemper/iotmaker.platform/factoryPoint"
+	"github.com/helmutkemper/iotmaker.platform/factoryShadow"
+	"github.com/helmutkemper/iotmaker.platform/factoryText"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"time"
 )
@@ -102,7 +103,7 @@ func main() {
 	)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
-	factoryBasicBox.NewBasicBox(
+	/*factoryBasicBox.NewBasicBox(
 		&stage.Canvas,
 		&stage.ScratchPad,
 		nil,
@@ -117,7 +118,7 @@ func main() {
 		nil,
 		density,
 		densityManager,
-	)
+	)*/
 
 	bx2 = factoryBasicBox.NewBasicBox(
 		&stage.Canvas,
@@ -129,13 +130,25 @@ func main() {
 		100,
 		100,
 		10,
-		8,
+		0,
 		shadowFilter,
 		gradientFilter,
 		density,
 		densityManager,
 	)
+	for y := 0; y != 2000; y += 1 {
+		for x := 0; x != 2000; x += 1 {
+			pixel := bx2.GetPixelAlphaChannel(x, y)
 
+			if pixel == 0 {
+				continue
+			}
+
+			fmt.Printf("(%v,%v): %v\n", x, y, pixel)
+		}
+	}
+
+	fmt.Println("fim!")
 	selectBox.NewResizeBoxFromBasicBox(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
