@@ -138,7 +138,7 @@ func main() {
 		densityManager,
 	)
 
-	selectBox.NewResizeBoxFromBasicBox(bx2, -3, -3, 6, 6, 1, density, densityManager)
+	rz := selectBox.NewResizeBoxFromBasicBox(bx2, -3, -3, 6, 6, 1, density, densityManager)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 	imgHtml := factoryImage.NewHtmlImage(
@@ -183,21 +183,10 @@ func main() {
 	)*/
 
 	browserDocument.SetMouseMoveListener(webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
-	mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBySimpleBox, bateu)
+	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
+	mouse.AddFunctionPointer("size", rz.GetCollisionBox, rz.ProcessMousePosition)
 
 	<-done
 }
 
 var lastCursor bool
-
-func bateu(x, y int, collision bool) {
-	if collision == false {
-		webBrowserMouse.SetCursor(stage.SelfElement, webBrowserMouse.KCursorAuto)
-	} else {
-		webBrowserMouse.SetCursor(stage.SelfElement, webBrowserMouse.KCursorColResize)
-	}
-
-	lastCursor = collision
-
-	//fmt.Printf("bateu: %v\n", collision)
-}
