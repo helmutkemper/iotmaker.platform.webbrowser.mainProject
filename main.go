@@ -3,7 +3,6 @@
 package main
 
 import (
-	"fmt"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
@@ -136,20 +135,8 @@ func main() {
 		density,
 		densityManager,
 	)
-	for y := 0; y != 2000; y += 1 {
-		for x := 0; x != 2000; x += 1 {
-			pixel := bx2.GetPixelAlphaChannel(x, y)
 
-			if pixel == 0 {
-				continue
-			}
-
-			fmt.Printf("(%v,%v): %v\n", x, y, pixel)
-		}
-	}
-
-	fmt.Println("fim!")
-	selectBox.NewResizeBoxFromBasicBox(bx2, -3, -3, 6, 6, 1, density, densityManager)
+	selectBox.NewResizeBoxFromBasicBox(bx2, -5, -5, 5, 5, 3, density, densityManager)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 	imgHtml := factoryImage.NewHtmlImage(
