@@ -8,6 +8,7 @@ import (
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/eventMouse"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserDocument"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/fontFamily"
@@ -157,9 +158,9 @@ func main() {
 		imgHtml,
 		48,
 		60,
-		0,
-		7,
-		80*time.Millisecond,
+		8,
+		9,
+		300*time.Millisecond,
 		50,
 		70,
 		48,
@@ -182,7 +183,7 @@ func main() {
 		1,
 	)*/
 
-	browserDocument.SetMouseMoveListener(webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
+	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 	mouse.AddFunctionPointer("size", rz.GetCollisionBox, rz.ProcessMousePosition)
 
