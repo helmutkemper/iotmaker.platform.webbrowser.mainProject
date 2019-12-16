@@ -4,6 +4,7 @@
 package main
 
 import (
+	"fmt"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
@@ -24,7 +25,9 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/factoryPoint"
 	"github.com/helmutkemper/iotmaker.platform/factoryShadow"
 	"github.com/helmutkemper/iotmaker.platform/factoryText"
+	"github.com/helmutkemper/iotmaker.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
+	"github.com/helmutkemper/util"
 	"image/color"
 	"time"
 )
@@ -182,6 +185,18 @@ func main() {
 		300,
 		1,
 	)*/
+
+	factoryTween.NewTweenEaseInQuadratic(
+		time.Second*2,
+		0,
+		3,
+		func(value float64) {
+			fmt.Printf("value on interaction event: %v\n", util.Round(value, 0.5, 1.0))
+		},
+		func(value float64) {
+			fmt.Printf("value on done event: %v\n", util.Round(value, 0.5, 1.0))
+		},
+	)
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
