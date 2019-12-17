@@ -38,17 +38,17 @@ func main() {
 	cl := factoryDraw.NewChartLinear(&stage.Canvas, 10, 10, 600, 500, density, densityManager)
 	cl.Begin(10, 510)
 	x := 10.0
-	step := 590.0 / float64(fps.Get()) / 2.0
-	factoryTween.NewLinear(
-		time.Second*2,
+	step := 630.0 / float64(fps.Get()) / 10.0
+	factoryTween.NewEaseInOutCubic(
+		time.Second*10,
+		510,
 		10,
-		500,
 		func(y float64) {
-			fmt.Printf("y: %v\n", y)
 			cl.Point(int(x), int(y))
 			x += step
 		},
-		func(value float64) {
+		func(y float64) {
+			fmt.Printf("final y: %v\n", y)
 			cl.End()
 		},
 	)
