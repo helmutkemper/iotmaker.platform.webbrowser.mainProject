@@ -4,7 +4,6 @@
 package main
 
 import (
-	"fmt"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
@@ -14,6 +13,7 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/factoryDraw"
 	"github.com/helmutkemper/iotmaker.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.platform/fps"
+	"github.com/helmutkemper/iotmaker.platform/mathTween"
 	"time"
 )
 
@@ -35,22 +35,50 @@ func main() {
 	//imgHtml := factoryImage.NewHtmlImage(html, browserDocument.SelfDocument, map[string]interface{}{"id":  "player", "src": "./player_big.png"},true,true)
 	//factoryImage.NewMultipleSpritesImage(&stage.Canvas, imgHtml,48,60,0,7, 90*time.Millisecond,50,70,48,60, density, densityManager).Crete()
 
-	cl := factoryDraw.NewChartLinear(&stage.Canvas, 10, 10, 600, 500, density, densityManager)
-	cl.Begin(10, 510)
-	x := 10.0
-	step := 630.0 / float64(fps.Get()) / 10.0
+	x := 10
+	y := 10
+	width := 600
+	height := 500
+
+	cl := factoryDraw.NewChartLinear(&stage.Canvas, x, y, width, height, density, densityManager)
+	cl.Begin(x, y+height)
+
+	fps.Set(10)
+
+	interactionCurrent := 0.0
+	interactionTotal := float64(height - y)
+	f := mathTween.KEaseInOutCubic
+	for {
+		yGraph := f(interactionCurrent, interactionTotal, float64(y+height), float64(y+height))
+		cl.Point(int(float64(x+width)*(interactionCurrent/interactionTotal)), int(yGraph))
+		interactionCurrent += 1.0
+
+		if yGraph >= float64(y) {
+			break
+		}
+	}
+
+	cl.End()
+	cl.Begin(x, y+height)
+
 	factoryTween.NewEaseInOutCubic(
 		time.Second*10,
-		510,
-		10,
-		func(y float64) {
-			cl.Point(int(x), int(y))
-			x += step
+		float64(y+height),
+		float64(y),
+		func(y, p float64, ars []interface{}) {
+			x := ars[0].(int)
+			//y := ars[1].(int)
+			width := ars[2].(int)
+			//height := ars[3].(int)
+			cl.Point(int(float64(x+width)*p), int(y))
 		},
 		func(y float64) {
-			fmt.Printf("final y: %v\n", y)
 			cl.End()
 		},
+		x,
+		y,
+		width,
+		height,
 	)
 
 	<-done
