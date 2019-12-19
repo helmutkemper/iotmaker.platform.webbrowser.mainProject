@@ -38,7 +38,7 @@ func main() {
 	startValue := float64(y + height)
 	endValue := float64(y)
 	delta := endValue - startValue
-	f := mathTween.KEaseInOutCubic
+	f := _mathTween.KEaseInOutCubic
 	for {
 		yGraph := f(interactionCurrent, interactionTotal, startValue, delta)
 		cl.Pixel(int(float64(x+width)*(interactionCurrent/interactionTotal))+x, int(yGraph))
