@@ -9,7 +9,7 @@ import (
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserDocument"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.platform/factoryDraw"
-	"github.com/helmutkemper/iotmaker.platform/mathTween"
+	"github.com/helmutkemper/iotmaker.platform/tween"
 )
 
 var (
@@ -38,7 +38,7 @@ func main() {
 	startValue := float64(y + height)
 	endValue := float64(y)
 	delta := endValue - startValue
-	f := _mathTween.KEaseInOutCubic
+	f := tween.KEaseInOutCubic
 	for {
 		yGraph := f(interactionCurrent, interactionTotal, startValue, delta)
 		cl.Pixel(int(float64(x+width)*(interactionCurrent/interactionTotal))+x, int(yGraph))
