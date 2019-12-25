@@ -24,6 +24,7 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/factoryPoint"
 	"github.com/helmutkemper/iotmaker.platform/factoryShadow"
 	"github.com/helmutkemper/iotmaker.platform/factoryText"
+	"github.com/helmutkemper/iotmaker.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"image/color"
 	"time"
@@ -104,6 +105,29 @@ func main() {
 		densityManager,
 	)
 
+	imgLogo := factoryImage.NewHtmlImage(
+		html,
+		browserDocument.SelfDocument,
+		map[string]interface{}{
+			"id":  "logo",
+			"src": "./kemper_logo.png",
+		},
+		true,
+		false,
+	)
+
+	i := factoryImage.NewImage(
+		&stage.Canvas,
+		&stage.ScratchPad,
+		imgLogo,
+		10,
+		10,
+		100,
+		100,
+		density,
+		densityManager,
+	)
+
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 	factoryDraw.NewBasicBox(
 		&stage.Canvas,
@@ -162,7 +186,7 @@ func main() {
 		true,
 	)
 
-	i := factoryImage.NewMultipleSpritesImage(
+	factoryImage.NewMultipleSpritesImage(
 		&stage.Canvas,
 		imgHtml,
 		48,
@@ -177,7 +201,6 @@ func main() {
 		density,
 		densityManager,
 	)
-	i.Crete()
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
@@ -195,6 +218,18 @@ func main() {
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 	mouse.AddFunctionPointer("size", rz.GetCollisionBox, rz.ProcessMousePosition)
+
+	factoryTween.NewEaseInOutCubic(
+		time.Second*10,
+		10.0,
+		300.0,
+		func(x, p float64, ars []interface{}) {
+			i.SetX(int(x))
+			go func() { <-done }()
+		},
+		nil,
+		nil,
+	)
 
 	<-done
 }
