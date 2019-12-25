@@ -175,7 +175,7 @@ func main() {
 	)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
-	imgHtml := factoryImage.NewHtmlImage(
+	/*imgHtml := factoryImage.NewHtmlImage(
 		html,
 		browserDocument.SelfDocument,
 		map[string]interface{}{
@@ -184,9 +184,9 @@ func main() {
 		},
 		true,
 		true,
-	)
+	)*/
 
-	factoryImage.NewMultipleSpritesImage(
+	/*factoryImage.NewMultipleSpritesImage(
 		&stage.Canvas,
 		imgHtml,
 		48,
@@ -200,7 +200,7 @@ func main() {
 		60,
 		density,
 		densityManager,
-	)
+	)*/
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
@@ -219,8 +219,8 @@ func main() {
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 	mouse.AddFunctionPointer("size", rz.GetCollisionBox, rz.ProcessMousePosition)
 
-	factoryTween.NewEaseInOutCubic(
-		time.Second*10,
+	factoryTween.NewEaseInExponential(
+		time.Second*1,
 		10.0,
 		300.0,
 		func(x, p float64, ars []interface{}) {
