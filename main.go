@@ -49,9 +49,9 @@ func main() {
 	browserDocument := factoryBrowserDocument.NewDocument()
 
 	var colorShadow = colornames.BlackHalfTransparent
-	var blur int = 10
-	var offsetX int = 2
-	var offsetY int = 2
+	var blur float64 = 10
+	var offsetX float64 = 2
+	var offsetY float64 = 2
 	var shadowFilter = factoryShadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
 
 	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
@@ -224,7 +224,7 @@ func main() {
 		10.0,
 		300.0,
 		func(x, p float64, ars []interface{}) {
-			i.SetX(int(x))
+			i.SetX(x)
 			go func() { <-done }()
 		},
 		nil,
