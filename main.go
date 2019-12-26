@@ -249,15 +249,18 @@ func main() {
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 	mouse.AddFunctionPointer("size", rz.GetCollisionBox, rz.ProcessMousePosition)
 
-	factoryTween.NewLinearInfiniteLoop(
+	factoryTween.NewLinearFiniteLoop(
 		time.Second*2,
+		2,
 		10.0,
 		300.0,
 		func(x, p float64, ars []interface{}) {
 			i.SetX(x)
 		},
 		nil,
-		nil,
+		func(x float64) {
+			fps.AddRunner(func() { i.SetX(x) }, true)
+		},
 	)
 
 	<-done

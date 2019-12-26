@@ -668,6 +668,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/tween/tween.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/typeBasicBox.go">
           <value>
             <set />
