@@ -7,14 +7,18 @@ import (
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/basic"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/document"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/eventMouse"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserDocument"
+	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/fontFamily"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/draw"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/genericTypes"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
 	"github.com/helmutkemper/iotmaker.platform/factoryColor"
 	"github.com/helmutkemper/iotmaker.platform/factoryDraw"
@@ -36,26 +40,17 @@ var (
 	bx2                                       = &draw.BasicBox{}
 	stage                                     = canvas.Stage{}
 	gradientFilter iotmakerPlatformIDraw.IFilterGradientInterface
-	html           iotmakerPlatformIDraw.IHtml
 )
 
-func main() {
+var html iotmakerPlatformIDraw.IHtml
+var browserDocument document.Document
+var imgSpace interface{}
+var imgPlayer interface{}
 
-	//todo: canvasDrawImage()
-
-	done := make(chan struct{}, 0)
+func prepareDataBeforeRun() {
 
 	html = &Html.Html{}
-	browserDocument := factoryBrowserDocument.NewDocument()
-
-	var colorShadow = colornames.BlackHalfTransparent
-	var blur float64 = 10
-	var offsetX float64 = 2
-	var offsetY float64 = 2
-	var shadowFilter = factoryShadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
-
-	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
-
+	browserDocument = factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(
 		browserDocument,
 		"stage",
@@ -64,6 +59,45 @@ func main() {
 		density,
 		densityManager,
 	)
+
+	imgSpace = factoryBrowserImage.NewImage(
+		html,
+		browserDocument.SelfDocument,
+		map[string]interface{}{
+			"id":  "spacecraft",
+			"src": "./spacecraft.png",
+		},
+		true,
+		false,
+	)
+
+	imgPlayer = factoryBrowserImage.NewImage(
+		html,
+		browserDocument.SelfDocument,
+		map[string]interface{}{
+			"id":  "player",
+			"src": "./player_big.png",
+		},
+		true,
+		false,
+	)
+}
+
+func main() {
+
+	//todo: canvasDrawImage()
+
+	done := make(chan struct{}, 0)
+
+	prepareDataBeforeRun()
+
+	var colorShadow = colornames.BlackHalfTransparent
+	var blur float64 = 10
+	var offsetX float64 = 2
+	var offsetY float64 = 2
+	var shadowFilter = factoryShadow.NewShadowFilter(colorShadow, blur, offsetX, offsetY, density, densityManager)
+
+	//mouse.AddFunctionPointer(bx1.GetAlphaChannel)
 
 	colorWhite := factoryColor.NewColorPosition(colornames.Red, 0.5)
 	colorBlack := factoryColor.NewColorPosition(colornames.Black, 1)
@@ -105,25 +139,30 @@ func main() {
 		densityManager,
 	)
 
-	imgLogo := factoryImage.NewHtmlImage(
-		html,
-		browserDocument.SelfDocument,
-		map[string]interface{}{
-			"id":  "logo",
-			"src": "./spacecraft.png",
+	_ = basic.Sprite{
+		Id:         "sprite",
+		Platform:   &stage.Canvas,
+		Dimensions: genericTypes.Dimensions{},
+		OutBoxDimensions: genericTypes.Dimensions{
+			X:      10,
+			Y:      10,
+			Width:  460 * 0.055,
+			Height: 783 * 0.055,
 		},
-		true,
-		false,
-	)
+		Ink: genericTypes.Ink{},
+		Drag: basic.Drag{
+			IsDraggable: true,
+		},
+	}
 
 	i := factoryImage.NewImage(
 		&stage.Canvas,
 		&stage.ScratchPad,
-		imgLogo,
+		imgSpace,
 		10,
 		10,
-		50,
-		100,
+		460*0.055,
+		783*0.055,
 		density,
 		densityManager,
 	)
@@ -175,16 +214,6 @@ func main() {
 	)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
-	/*imgHtml := factoryImage.NewHtmlImage(
-		html,
-		browserDocument.SelfDocument,
-		map[string]interface{}{
-			"id":  "player",
-			"src": "./player_big.png",
-		},
-		true,
-		true,
-	)*/
 
 	/*factoryImage.NewMultipleSpritesImage(
 		&stage.Canvas,
