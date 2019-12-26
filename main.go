@@ -29,6 +29,7 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/factoryShadow"
 	"github.com/helmutkemper/iotmaker.platform/factoryText"
 	"github.com/helmutkemper/iotmaker.platform/factoryTween"
+	"github.com/helmutkemper/iotmaker.platform/fps"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"image/color"
 	"time"
@@ -88,7 +89,7 @@ func main() {
 	//todo: canvasDrawImage()
 
 	done := make(chan struct{}, 0)
-
+	fps.Set(120)
 	prepareDataBeforeRun()
 
 	var colorShadow = colornames.BlackHalfTransparent
@@ -248,7 +249,7 @@ func main() {
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 	mouse.AddFunctionPointer("size", rz.GetCollisionBox, rz.ProcessMousePosition)
 
-	factoryTween.NewEaseInOutExponential(
+	factoryTween.NewLinear(
 		time.Second*5,
 		10.0,
 		300.0,
