@@ -110,7 +110,7 @@ func main() {
 		browserDocument.SelfDocument,
 		map[string]interface{}{
 			"id":  "logo",
-			"src": "./kemper_logo.png",
+			"src": "./spacecraft.png",
 		},
 		true,
 		false,
@@ -122,7 +122,7 @@ func main() {
 		imgLogo,
 		10,
 		10,
-		100,
+		50,
 		100,
 		density,
 		densityManager,
