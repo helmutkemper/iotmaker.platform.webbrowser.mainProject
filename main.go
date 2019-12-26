@@ -219,8 +219,8 @@ func main() {
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 	mouse.AddFunctionPointer("size", rz.GetCollisionBox, rz.ProcessMousePosition)
 
-	factoryTween.NewEaseInExponential(
-		time.Second*1,
+	factoryTween.NewEaseInOutExponential(
+		time.Second*5,
 		10.0,
 		300.0,
 		func(x, p float64, ars []interface{}) {
