@@ -89,7 +89,7 @@ func main() {
 	//todo: canvasDrawImage()
 
 	done := make(chan struct{}, 0)
-	fps.Set(120)
+	fps.Set(60)
 	prepareDataBeforeRun()
 
 	var colorShadow = colornames.BlackHalfTransparent
@@ -147,8 +147,8 @@ func main() {
 		OutBoxDimensions: genericTypes.Dimensions{
 			X:      10,
 			Y:      10,
-			Width:  460 * 0.055,
-			Height: 783 * 0.055,
+			Width:  88,
+			Height: 150,
 		},
 		Ink: genericTypes.Ink{},
 		Drag: basic.Drag{
@@ -216,9 +216,9 @@ func main() {
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 
-	/*factoryImage.NewMultipleSpritesImage(
+	factoryImage.NewMultipleSpritesImage(
 		&stage.Canvas,
-		imgHtml,
+		imgPlayer,
 		48,
 		60,
 		0,
@@ -230,7 +230,7 @@ func main() {
 		60,
 		density,
 		densityManager,
-	)*/
+	)
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
@@ -249,13 +249,12 @@ func main() {
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 	mouse.AddFunctionPointer("size", rz.GetCollisionBox, rz.ProcessMousePosition)
 
-	factoryTween.NewLinear(
-		time.Second*5,
+	factoryTween.NewLinearInfiniteLoop(
+		time.Second*2,
 		10.0,
 		300.0,
 		func(x, p float64, ars []interface{}) {
 			i.SetX(x)
-			go func() { <-done }()
 		},
 		nil,
 		nil,
