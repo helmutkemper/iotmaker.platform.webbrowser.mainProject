@@ -538,6 +538,126 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInCircular.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInCubic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInExponential.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInOutCircular.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInOutCubic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInOutExponential.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInOutQuadratic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInOutQuartic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInOutQuintic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInOutSine.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInQuadratic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInQuartic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInQuintic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseInSine.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseOutCircular.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseOutCubic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseOutExponential.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseOutQuadratic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseOutQuartic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseOutQuintic.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newEaseOutSine.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/apagar/newLinear.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/newEaseInCircularFiniteLoop.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/newLinearFiniteLoop.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/interfaceGraphic.go">
           <value>
             <set />
