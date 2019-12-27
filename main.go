@@ -238,7 +238,7 @@ func main() {
 		10.0,
 		300.0,
 		func(x, p float64, ars []interface{}) {
-			i.X = x
+			i.Dimensions.X = x
 		},
 		nil,
 		nil,
