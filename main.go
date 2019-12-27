@@ -26,9 +26,12 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/factoryPoint"
 	"github.com/helmutkemper/iotmaker.platform/factoryShadow"
 	"github.com/helmutkemper/iotmaker.platform/factoryText"
+	"github.com/helmutkemper/iotmaker.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.platform/fps"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"image/color"
+	"math/rand"
+	"time"
 )
 
 var (
@@ -136,19 +139,45 @@ func main() {
 		densityManager,
 	)
 
-	i := factoryImage.NewImage(
-		&stage.Canvas,
-		&stage.ScratchPad,
-		imgSpace,
-		10,
-		10,
-		88,
-		150,
-		density,
-		densityManager,
-	)
-	i.SetDraggable(true)
-	stage.Add(i.Draw)
+	for a := 0; a != 250; a += 1 {
+		i := factoryImage.NewImage(
+			&stage.Canvas,
+			&stage.ScratchPad,
+			imgSpace,
+			float64(rand.Int63n(800)),
+			float64(rand.Int63n(600)),
+			88,
+			150,
+			density,
+			densityManager,
+		)
+		//i.SetDraggable(true)
+		stage.Add(i.Draw)
+		factoryTween.NewLinearFiniteLoop(
+			time.Second*2,
+			-1,
+			float64(rand.Int63n(800)),
+			float64(rand.Int63n(600)),
+			func(x, p float64, ars []interface{}) {
+				i.Dimensions.X = x
+				i.OutBoxDimensions.X = x
+			},
+			nil,
+			nil,
+		)
+		factoryTween.NewLinearFiniteLoop(
+			time.Second*2,
+			-1,
+			float64(rand.Int63n(800)),
+			float64(rand.Int63n(600)),
+			func(y, p float64, ars []interface{}) {
+				i.Dimensions.Y = y
+				i.OutBoxDimensions.Y = y
+			},
+			nil,
+			nil,
+		)
+	}
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 	factoryDraw.NewBasicBox(
