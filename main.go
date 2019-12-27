@@ -167,6 +167,7 @@ func main() {
 		density,
 		densityManager,
 	)
+	stage.Add(i.Draw)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 	factoryDraw.NewBasicBox(
@@ -216,7 +217,7 @@ func main() {
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 
-	factoryImage.NewMultipleSpritesImage(
+	/*factoryImage.NewMultipleSpritesImage(
 		&stage.Canvas,
 		imgPlayer,
 		48,
@@ -230,7 +231,7 @@ func main() {
 		60,
 		density,
 		densityManager,
-	)
+	)*/
 
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
 
@@ -259,7 +260,7 @@ func main() {
 		},
 		nil,
 		func(x float64) {
-			fps.AddRunner(func() { i.SetX(x) }, true)
+			//fps.AddRunner(func() { i.SetX(x) }, true)
 		},
 	)
 
