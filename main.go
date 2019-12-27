@@ -26,11 +26,9 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/factoryPoint"
 	"github.com/helmutkemper/iotmaker.platform/factoryShadow"
 	"github.com/helmutkemper/iotmaker.platform/factoryText"
-	"github.com/helmutkemper/iotmaker.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.platform/fps"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"image/color"
-	"time"
 )
 
 var (
@@ -149,6 +147,7 @@ func main() {
 		density,
 		densityManager,
 	)
+	i.SetDraggable(true)
 	stage.Add(i.Draw)
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
@@ -186,7 +185,7 @@ func main() {
 		densityManager,
 	)
 
-	rz := selectBox.NewResizeBoxFromBasicBox(
+	selectBox.NewResizeBoxFromBasicBox(
 		bx2,
 		-3,
 		-3,
@@ -230,19 +229,19 @@ func main() {
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
-	mouse.AddFunctionPointer("size", rz.GetCollisionBox, rz.ProcessMousePosition)
 
-	factoryTween.NewLinearFiniteLoop(
-		time.Second*2,
-		-1,
-		10.0,
-		300.0,
-		func(x, p float64, ars []interface{}) {
-			i.Dimensions.X = x
-		},
-		nil,
-		nil,
-	)
+	/*factoryTween.NewLinearFiniteLoop(
+			time.Second*2,
+			-1,
+			10.0,
+			300.0,
+			func(x, p float64, ars []interface{}) {
+				i.Dimensions.X = x
+	      i.OutBoxDimensions.X = x
+			},
+			nil,
+			nil,
+		)*/
 
 	<-done
 }
