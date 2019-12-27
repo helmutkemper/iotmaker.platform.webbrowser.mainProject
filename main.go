@@ -7,7 +7,6 @@ import (
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/Html"
-	"github.com/helmutkemper/iotmaker.platform.webbrowser/basic"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/document"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/eventMouse"
@@ -18,7 +17,6 @@ import (
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/colornames"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/draw"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/genericTypes"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/selectBox"
 	"github.com/helmutkemper/iotmaker.platform/factoryColor"
 	"github.com/helmutkemper/iotmaker.platform/factoryDraw"
@@ -36,7 +34,7 @@ import (
 )
 
 var (
-	density                                   = 3.0
+	density                                   = 1.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	bx2                                       = &draw.BasicBox{}
 	stage                                     = canvas.Stage{}
@@ -55,8 +53,8 @@ func prepareDataBeforeRun() {
 	stage = factoryBrowserStage.NewStage(
 		browserDocument,
 		"stage",
-		300,
-		300,
+		800,
+		600,
 		density,
 		densityManager,
 	)
@@ -140,30 +138,14 @@ func main() {
 		densityManager,
 	)
 
-	_ = basic.Sprite{
-		Id:         "sprite",
-		Platform:   &stage.Canvas,
-		Dimensions: genericTypes.Dimensions{},
-		OutBoxDimensions: genericTypes.Dimensions{
-			X:      10,
-			Y:      10,
-			Width:  88,
-			Height: 150,
-		},
-		Ink: genericTypes.Ink{},
-		Drag: basic.Drag{
-			IsDraggable: true,
-		},
-	}
-
 	i := factoryImage.NewImage(
 		&stage.Canvas,
 		&stage.ScratchPad,
 		imgSpace,
 		10,
 		10,
-		460*0.055,
-		783*0.055,
+		88,
+		150,
 		density,
 		densityManager,
 	)
@@ -252,16 +234,14 @@ func main() {
 
 	factoryTween.NewLinearFiniteLoop(
 		time.Second*2,
-		2,
+		-1,
 		10.0,
 		300.0,
 		func(x, p float64, ars []interface{}) {
-			i.SetX(x)
+			i.X = x
 		},
 		nil,
-		func(x float64) {
-			//fps.AddRunner(func() { i.SetX(x) }, true)
-		},
+		nil,
 	)
 
 	<-done
