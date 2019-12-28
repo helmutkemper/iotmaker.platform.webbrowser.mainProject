@@ -65,7 +65,7 @@ func prepareDataBeforeRun() {
 		browserDocument.SelfDocument,
 		map[string]interface{}{
 			"id":  "spacecraft",
-			"src": "./spacecraft.png",
+			"src": "./small.png",
 		},
 		true,
 		false,
@@ -139,22 +139,22 @@ func main() {
 		densityManager,
 	)
 
-	for a := 0; a != 250; a += 1 {
+	for a := 0; a != 460; a += 1 {
 		i := factoryImage.NewImage(
 			&stage.Canvas,
 			&stage.ScratchPad,
 			imgSpace,
 			float64(rand.Int63n(800)),
 			float64(rand.Int63n(600)),
-			88,
-			150,
+			29,
+			50,
 			density,
 			densityManager,
 		)
 		//i.SetDraggable(true)
 		stage.Add(i.Draw)
 		factoryTween.NewLinearFiniteLoop(
-			time.Second*2,
+			time.Millisecond*time.Duration(rand.Int63n(1500)+500),
 			-1,
 			float64(rand.Int63n(800)),
 			float64(rand.Int63n(600)),
