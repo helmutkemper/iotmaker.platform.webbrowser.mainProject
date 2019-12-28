@@ -28,9 +28,9 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/factoryText"
 	"github.com/helmutkemper/iotmaker.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.platform/fps"
+	"github.com/helmutkemper/iotmaker.platform/mathUtil"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"image/color"
-	"math/rand"
 	"time"
 )
 
@@ -88,7 +88,7 @@ func main() {
 	//todo: canvasDrawImage()
 
 	done := make(chan struct{}, 0)
-	fps.Set(60)
+	fps.Set(30)
 	prepareDataBeforeRun()
 
 	var colorShadow = colornames.BlackHalfTransparent
@@ -139,13 +139,13 @@ func main() {
 		densityManager,
 	)
 
-	for a := 0; a != 400; a += 1 {
+	for a := 0; a != 100; a += 1 {
 		i := factoryImage.NewImage(
 			&stage.Canvas,
 			&stage.ScratchPad,
 			imgSpace,
-			float64(rand.Int63n(800)),
-			float64(rand.Int63n(600)),
+			mathUtil.Float64FomInt(0, 800),
+			mathUtil.Float64FomInt(0, 600),
 			29,
 			50,
 			density,
@@ -154,10 +154,10 @@ func main() {
 		//i.SetDraggable(true)
 		stage.Add(i.Draw)
 		factoryTween.NewLinearFiniteLoop(
-			time.Millisecond*time.Duration(rand.Int63n(1500)+500),
+			time.Millisecond*time.Duration(mathUtil.Float64FomInt(500, 3000)),
 			-1,
-			float64(rand.Int63n(800)),
-			float64(rand.Int63n(600)),
+			mathUtil.Float64FomInt(0, 800),
+			mathUtil.Float64FomInt(0, 600),
 			func(x, p float64, ars []interface{}) {
 				i.Dimensions.X = x
 				i.OutBoxDimensions.X = x
@@ -166,10 +166,10 @@ func main() {
 			nil,
 		)
 		factoryTween.NewLinearFiniteLoop(
-			time.Second*2,
+			time.Millisecond*time.Duration(mathUtil.Float64FomInt(500, 3000)),
 			-1,
-			float64(rand.Int63n(800)),
-			float64(rand.Int63n(600)),
+			mathUtil.Float64FomInt(0, 800),
+			mathUtil.Float64FomInt(0, 600),
 			func(y, p float64, ars []interface{}) {
 				i.Dimensions.Y = y
 				i.OutBoxDimensions.Y = y
