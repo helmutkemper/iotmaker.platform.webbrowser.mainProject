@@ -85,8 +85,6 @@ func prepareDataBeforeRun() {
 
 func main() {
 
-	//todo: canvasDrawImage()
-
 	done := make(chan struct{}, 0)
 	fps.Set(40)
 	prepareDataBeforeRun()
@@ -139,7 +137,7 @@ func main() {
 		densityManager,
 	)
 
-	for a := 0; a != 100; a += 1 {
+	for a := 0; a != 50; a += 1 {
 		i := factoryImage.NewImage(
 			&stage.Canvas,
 			&stage.ScratchPad,
@@ -153,7 +151,7 @@ func main() {
 		)
 		//i.SetDraggable(true)
 		stage.Add(i.Draw)
-		factoryTween.NewLinearFiniteLoop(
+		factoryTween.NewEaseInOutExponentialFiniteLoop(
 			time.Millisecond*time.Duration(mathUtil.Float64FomInt(500, 3000)),
 			-1,
 			mathUtil.Float64FomInt(0, 800),
