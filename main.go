@@ -88,7 +88,7 @@ func main() {
 	//todo: canvasDrawImage()
 
 	done := make(chan struct{}, 0)
-	fps.Set(30)
+	fps.Set(40)
 	prepareDataBeforeRun()
 
 	var colorShadow = colornames.BlackHalfTransparent
