@@ -10,6 +10,7 @@ import (
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/draw"
 	"github.com/helmutkemper/iotmaker.platform/factoryDraw"
+	"github.com/helmutkemper/iotmaker.platform/fps"
 	"github.com/helmutkemper/iotmaker.platform/tween"
 )
 
@@ -23,6 +24,8 @@ var (
 )
 
 func main() {
+
+	fps.Set(1)
 
 	done := make(chan struct{}, 0)
 
@@ -54,7 +57,7 @@ func Draw() {
 	startValue := y + height
 	endValue := y
 	delta := endValue - startValue
-	f := tween.KEaseInQuarticOutSine
+	f := tween.SelectRandom()
 	for {
 		yGraph := f(interactionCurrent, interactionTotal, startValue, delta)
 		cl.Pixel((x+width)*(interactionCurrent/interactionTotal)+x, yGraph)
