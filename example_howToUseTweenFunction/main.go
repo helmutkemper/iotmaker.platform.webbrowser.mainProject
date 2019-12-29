@@ -4,10 +4,12 @@
 package main
 
 import (
+	"fmt"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserDocument"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserStage"
+	"github.com/helmutkemper/iotmaker.platform/abstractType/draw"
 	"github.com/helmutkemper/iotmaker.platform/factoryDraw"
 	"github.com/helmutkemper/iotmaker.platform/tween"
 )
@@ -16,6 +18,9 @@ var (
 	density                                   = 1.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
 	stage                                     = canvas.Stage{}
+
+	cl *draw.ChartLinear
+	id string
 )
 
 func main() {
@@ -25,31 +30,44 @@ func main() {
 	browserDocument := factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(browserDocument, "stage", 800, 600, density, densityManager)
 
-	x := 10
-	y := 10
-	width := 600
-	height := 500
+	x := 10.0
+	y := 10.0
+	width := 600.0
+	height := 500.0
 
-	cl := factoryDraw.NewChartLinear(&stage.Canvas, x, y, width, height, density, densityManager)
+	cl = factoryDraw.NewChartLinear(&stage.Canvas, x, y, width, height, density, densityManager)
+
+	id = stage.Add(Draw)
+
+	<-done
+}
+
+func Draw() {
+	x := 10.0
+	y := 10.0
+	width := 600.0
+	height := 500.0
+
 	cl.Begin(x, y+height)
 
 	interactionCurrent := 0.0
-	interactionTotal := float64(height - y)
-	startValue := float64(y + height)
-	endValue := float64(y)
+	interactionTotal := height - y
+	startValue := y + height
+	endValue := y
 	delta := endValue - startValue
-	f := tween.KEaseInOutCubic
+	f := tween.KEaseInOutExponential
 	for {
 		yGraph := f(interactionCurrent, interactionTotal, startValue, delta)
-		cl.Pixel(int(float64(x+width)*(interactionCurrent/interactionTotal))+x, int(yGraph))
+		cl.Pixel((x+width)*(interactionCurrent/interactionTotal)+x, yGraph)
 		interactionCurrent += 1
 
-		if yGraph <= float64(y) {
+		fmt.Printf("percent: %v\n", interactionCurrent/interactionTotal)
+
+		if interactionCurrent/interactionTotal >= 1.0 {
 			break
 		}
 	}
 
+	//stage.Remove(id)
 	cl.End()
-
-	<-done
 }
