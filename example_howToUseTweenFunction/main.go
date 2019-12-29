@@ -4,7 +4,6 @@
 package main
 
 import (
-	"fmt"
 	coordinateManager "github.com/helmutkemper/iotmaker.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserDocument"
@@ -55,13 +54,11 @@ func Draw() {
 	startValue := y + height
 	endValue := y
 	delta := endValue - startValue
-	f := tween.KEaseInOutExponential
+	f := tween.KEaseInQuarticOutSine
 	for {
 		yGraph := f(interactionCurrent, interactionTotal, startValue, delta)
 		cl.Pixel((x+width)*(interactionCurrent/interactionTotal)+x, yGraph)
 		interactionCurrent += 1
-
-		fmt.Printf("percent: %v\n", interactionCurrent/interactionTotal)
 
 		if interactionCurrent/interactionTotal >= 1.0 {
 			break
