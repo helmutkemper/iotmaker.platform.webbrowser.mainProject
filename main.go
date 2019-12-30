@@ -16,6 +16,7 @@ import (
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.platform/abstractType/draw"
 	"github.com/helmutkemper/iotmaker.platform/factoryImage"
+	"github.com/helmutkemper/iotmaker.platform/fps"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 )
 
@@ -72,6 +73,7 @@ func main() {
 
 	done := make(chan struct{}, 0)
 	prepareDataBeforeRun()
+	fps.Set(30)
 
 	i := factoryImage.NewImage(
 		&stage.Canvas,
