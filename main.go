@@ -135,7 +135,7 @@ func main() {
 		densityManager,
 	)
 
-	for a := 0; a != 300; a += 1 {
+	for a := 0; a != 3000; a += 1 {
 		i := factoryImage.NewImage(
 			&stage.Canvas,
 			&stage.ScratchPad,
@@ -160,7 +160,7 @@ func main() {
 				i.Dimensions.X = x
 				i.OutBoxDimensions.X = x
 			},
-			0,
+			-1,
 			nil,
 		)
 		factoryTween.NewSelectRandom(
@@ -174,7 +174,7 @@ func main() {
 				i.Dimensions.Y = y
 				i.OutBoxDimensions.Y = y
 			},
-			0,
+			-1,
 			nil,
 		)
 	}
