@@ -683,6 +683,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/newEaseInCircular.go">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/newEaseInCircularFiniteLoop.go">
           <value>
             <set />
@@ -754,6 +759,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/newEaseInCubicOutSine.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform/factoryTween/newEaseInExponential.go">
           <value>
             <set />
           </value>
