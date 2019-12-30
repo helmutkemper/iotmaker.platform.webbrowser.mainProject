@@ -27,7 +27,6 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/factoryShadow"
 	"github.com/helmutkemper/iotmaker.platform/factoryText"
 	"github.com/helmutkemper/iotmaker.platform/factoryTween"
-	"github.com/helmutkemper/iotmaker.platform/fps"
 	"github.com/helmutkemper/iotmaker.platform/mathUtil"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
 	"image/color"
@@ -86,7 +85,6 @@ func prepareDataBeforeRun() {
 func main() {
 
 	done := make(chan struct{}, 0)
-	fps.Set(120)
 	prepareDataBeforeRun()
 
 	var colorShadow = colornames.BlackHalfTransparent
@@ -137,7 +135,7 @@ func main() {
 		densityManager,
 	)
 
-	for a := 0; a != 1000; a += 1 {
+	for a := 0; a != 300; a += 1 {
 		i := factoryImage.NewImage(
 			&stage.Canvas,
 			&stage.ScratchPad,
