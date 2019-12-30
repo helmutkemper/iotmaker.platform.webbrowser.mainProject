@@ -137,7 +137,7 @@ func main() {
 		densityManager,
 	)
 
-	for a := 0; a != 100; a += 1 {
+	for a := 0; a != 500; a += 1 {
 		i := factoryImage.NewImage(
 			&stage.Canvas,
 			&stage.ScratchPad,
@@ -151,28 +151,32 @@ func main() {
 		)
 		//i.SetDraggable(true)
 		stage.Add(i.Draw)
-		factoryTween.NewEaseInOutExponentialFiniteLoop(
+		factoryTween.NewSelectRandom(
 			time.Millisecond*time.Duration(mathUtil.Float64FomInt(500, 3000)),
-			-1,
 			mathUtil.Float64FomInt(0, 800),
 			mathUtil.Float64FomInt(0, 600),
-			func(x, p float64, ars []interface{}) {
+			nil,
+			nil,
+			nil,
+			func(x, p float64, ars ...interface{}) {
 				i.Dimensions.X = x
 				i.OutBoxDimensions.X = x
 			},
-			nil,
+			-1,
 			nil,
 		)
-		factoryTween.NewLinearFiniteLoop(
+		factoryTween.NewSelectRandom(
 			time.Millisecond*time.Duration(mathUtil.Float64FomInt(500, 3000)),
-			-1,
 			mathUtil.Float64FomInt(0, 800),
 			mathUtil.Float64FomInt(0, 600),
-			func(y, p float64, ars []interface{}) {
+			nil,
+			nil,
+			nil,
+			func(y, p float64, ars ...interface{}) {
 				i.Dimensions.Y = y
 				i.OutBoxDimensions.Y = y
 			},
-			nil,
+			-1,
 			nil,
 		)
 	}
