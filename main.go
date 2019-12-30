@@ -135,7 +135,7 @@ func main() {
 		densityManager,
 	)
 
-	for a := 0; a != 3000; a += 1 {
+	for a := 0; a != 100; a += 1 {
 		i := factoryImage.NewImage(
 			&stage.Canvas,
 			&stage.ScratchPad,
@@ -160,7 +160,7 @@ func main() {
 				i.Dimensions.X = x
 				i.OutBoxDimensions.X = x
 			},
-			-1,
+			0,
 			nil,
 		)
 		factoryTween.NewSelectRandom(
@@ -174,7 +174,7 @@ func main() {
 				i.Dimensions.Y = y
 				i.OutBoxDimensions.Y = y
 			},
-			-1,
+			0,
 			nil,
 		)
 	}
@@ -227,50 +227,10 @@ func main() {
 
 	factoryGradient.ResetStylesGlobal(&stage.Canvas)
 
-	/*factoryImage.NewMultipleSpritesImage(
-		&stage.Canvas,
-		imgPlayer,
-		48,
-		60,
-		0,
-		7,
-		90*time.Millisecond,
-		50,
-		70,
-		48,
-		60,
-		density,
-		densityManager,
-	)*/
-
 	//fmt.Printf("over: %v\n", bx.GetAlphaChannel(0, 100))
-
-	/*abstractType.NewLineTo(
-		&stage.Canvas,
-		"line",
-		1.0,
-		0,
-		0,
-		300,
-		300,
-		1,
-	)*/
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
-
-	/*factoryTween.NewLinearFiniteLoop(
-			time.Second*2,
-			-1,
-			10.0,
-			300.0,
-			func(x, p float64, ars []interface{}) {
-				i.Dimensions.X = x
-	      i.OutBoxDimensions.X = x
-			},
-			nil,
-			nil,
-		)*/
 
 	<-done
 }
