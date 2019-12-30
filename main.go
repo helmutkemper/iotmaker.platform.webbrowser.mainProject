@@ -137,13 +137,13 @@ func main() {
 		densityManager,
 	)
 
-	for a := 0; a != 500; a += 1 {
+	for a := 0; a != 1000; a += 1 {
 		i := factoryImage.NewImage(
 			&stage.Canvas,
 			&stage.ScratchPad,
 			imgSpace,
-			mathUtil.Float64FomInt(0, 800),
-			mathUtil.Float64FomInt(0, 600),
+			-100,
+			-100,
 			29,
 			50,
 			density,
@@ -154,7 +154,7 @@ func main() {
 		factoryTween.NewSelectRandom(
 			time.Millisecond*time.Duration(mathUtil.Float64FomInt(500, 3000)),
 			mathUtil.Float64FomInt(0, 800),
-			mathUtil.Float64FomInt(0, 600),
+			mathUtil.Float64FomInt(0, 800),
 			nil,
 			nil,
 			nil,
@@ -162,12 +162,12 @@ func main() {
 				i.Dimensions.X = x
 				i.OutBoxDimensions.X = x
 			},
-			-1,
+			0,
 			nil,
 		)
 		factoryTween.NewSelectRandom(
 			time.Millisecond*time.Duration(mathUtil.Float64FomInt(500, 3000)),
-			mathUtil.Float64FomInt(0, 800),
+			mathUtil.Float64FomInt(0, 600),
 			mathUtil.Float64FomInt(0, 600),
 			nil,
 			nil,
@@ -176,7 +176,7 @@ func main() {
 				i.Dimensions.Y = y
 				i.OutBoxDimensions.Y = y
 			},
-			-1,
+			0,
 			nil,
 		)
 	}
