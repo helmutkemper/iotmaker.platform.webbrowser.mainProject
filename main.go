@@ -22,7 +22,7 @@ import (
 var (
 	density                                   = 1.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
-	stage                                     = canvas.Stage{}
+	stage          *canvas.Stage
 )
 
 var htmlElement iotmakerPlatformIDraw.IHtml
@@ -31,20 +31,16 @@ var imgSpace Html.Image
 
 func prepareDataBeforeRun() {
 	htmlElement = &Html.Html{}
+
 	browserDocument = factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(
 		browserDocument,
 		"stage",
-		800,
-		600,
-		density,
-		densityManager,
 	)
 
-	Html.PreLoadCursor(browserDocument.SelfDocument, Html.KTemplarianPath, Html.KTemplarianList)
-	for _, v := range Html.PreLoadMouseList {
-		htmlElement.Append(browserDocument.SelfDocument, v.Img.Get())
-	}
+	//for _, v := range Html.PreLoadMouseList {
+	//  htmlElement.Append(browserDocument.SelfDocument, v.Img.Get())
+	//}
 
 	imgSpace = factoryBrowserImage.NewImage(
 		htmlElement,
@@ -54,7 +50,7 @@ func prepareDataBeforeRun() {
 			"src": "./fonts/Templarian/MaterialDesign/svg/cursor-default-outline.svg",
 		},
 		true,
-		true,
+		false,
 	)
 }
 
@@ -75,10 +71,10 @@ func main() {
 		density,
 		densityManager,
 	)
-	i.SetDraggable(true)
+	i.DragStart()
 	stage.Add(i.Draw)
 
-	htmlElement.Remove(browserDocument.SelfDocument, imgSpace.Get())
+	//htmlElement.Remove(browserDocument.SelfDocument, imgSpace.Get())
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
