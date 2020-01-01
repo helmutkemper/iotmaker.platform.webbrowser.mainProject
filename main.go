@@ -77,6 +77,11 @@ func main() {
 	//htmlElement.Remove(browserDocument.SelfDocument, imgSpace.Get())
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
+	browserDocument.AddEventListener(eventMouse.KClick, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
+	browserDocument.AddEventListener(eventMouse.KDblClick, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
+	browserDocument.AddEventListener(eventMouse.KMouseDown, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
+	browserDocument.AddEventListener(eventMouse.KMouseUp, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
+	browserDocument.AddEventListener(eventMouse.KContextMenu, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 
 	<-done
