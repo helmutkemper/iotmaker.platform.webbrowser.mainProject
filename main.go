@@ -14,7 +14,6 @@ import (
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.platform.webbrowser/factoryBrowserStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.platform.webbrowser/mouse"
-	"github.com/helmutkemper/iotmaker.platform/abstractType/draw"
 	"github.com/helmutkemper/iotmaker.platform/factoryImage"
 	"github.com/helmutkemper/iotmaker.platform/fps"
 	"github.com/helmutkemper/iotmaker.platform/mouse"
@@ -23,15 +22,12 @@ import (
 var (
 	density                                   = 1.0
 	densityManager coordinateManager.IDensity = &coordinateManager.Density{}
-	bx2                                       = &draw.BasicBox{}
 	stage                                     = canvas.Stage{}
-	gradientFilter iotmakerPlatformIDraw.IFilterGradientInterface
 )
 
 var html iotmakerPlatformIDraw.IHtml
 var browserDocument document.Document
 var imgSpace interface{}
-var imgPlayer interface{}
 
 func prepareDataBeforeRun() {
 
@@ -51,18 +47,7 @@ func prepareDataBeforeRun() {
 		browserDocument.SelfDocument,
 		map[string]interface{}{
 			"id":  "spacecraft",
-			"src": "./small.png",
-		},
-		true,
-		false,
-	)
-
-	imgPlayer = factoryBrowserImage.NewImage(
-		html,
-		browserDocument.SelfDocument,
-		map[string]interface{}{
-			"id":  "player",
-			"src": "./player_big.png",
+			"src": "./fonts/fontawesome-free-5.12.0-web/svgs/solid/link.svg",
 		},
 		true,
 		false,
@@ -73,7 +58,7 @@ func main() {
 
 	done := make(chan struct{}, 0)
 	prepareDataBeforeRun()
-	fps.Set(30)
+	fps.Set(60)
 
 	i := factoryImage.NewImage(
 		&stage.Canvas,
@@ -81,8 +66,8 @@ func main() {
 		imgSpace,
 		-100,
 		-100,
-		29,
-		50,
+		16,
+		16,
 		density,
 		densityManager,
 	)
