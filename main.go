@@ -25,13 +25,12 @@ var (
 	stage                                     = canvas.Stage{}
 )
 
-var html iotmakerPlatformIDraw.IHtml
+var htmlElement iotmakerPlatformIDraw.IHtml
 var browserDocument document.Document
-var imgSpace interface{}
+var imgSpace Html.Image
 
 func prepareDataBeforeRun() {
-
-	html = &Html.Html{}
+	htmlElement = &Html.Html{}
 	browserDocument = factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(
 		browserDocument,
@@ -42,15 +41,20 @@ func prepareDataBeforeRun() {
 		densityManager,
 	)
 
+	Html.PreLoadCursor(browserDocument.SelfDocument, Html.KTemplarianPath, Html.KTemplarianList)
+	for _, v := range Html.PreLoadMouseList {
+		htmlElement.Append(browserDocument.SelfDocument, v.Img.Get())
+	}
+
 	imgSpace = factoryBrowserImage.NewImage(
-		html,
+		htmlElement,
 		browserDocument.SelfDocument,
 		map[string]interface{}{
-			"id":  "spacecraft",
-			"src": "./fonts/fontawesome-free-5.12.0-web/svgs/solid/link.svg",
+			"id":  "visibleMousePointer",
+			"src": "./fonts/Templarian/MaterialDesign/svg/cursor-default-outline.svg",
 		},
 		true,
-		false,
+		true,
 	)
 }
 
@@ -63,16 +67,18 @@ func main() {
 	i := factoryImage.NewImage(
 		&stage.Canvas,
 		&stage.ScratchPad,
-		imgSpace,
+		imgSpace.Get(),
 		-100,
 		-100,
-		16,
-		16,
+		24,
+		24,
 		density,
 		densityManager,
 	)
 	i.SetDraggable(true)
 	stage.Add(i.Draw)
+
+	htmlElement.Remove(browserDocument.SelfDocument, imgSpace.Get())
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
