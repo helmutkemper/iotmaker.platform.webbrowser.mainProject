@@ -11,10 +11,8 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/document"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/eventMouse"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserDocument"
-	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/mouse"
-	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/fps"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
 )
@@ -27,31 +25,19 @@ var (
 
 var htmlElement iotmakerPlatformIDraw.IHtml
 var browserDocument document.Document
-var imgSpace Html.Image
 
 func prepareDataBeforeRun() {
 	htmlElement = &Html.Html{}
 
 	browserDocument = factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(
+		htmlElement,
 		browserDocument,
 		"stage",
+		density,
+		densityManager,
 	)
-
-	//for _, v := range Html.PreLoadMouseList {
-	//  htmlElement.Append(browserDocument.SelfDocument, v.Img.Get())
-	//}
-
-	imgSpace = factoryBrowserImage.NewImage(
-		htmlElement,
-		browserDocument.SelfDocument,
-		map[string]interface{}{
-			"id":  "visibleMousePointer",
-			"src": "./fonts/Templarian/MaterialDesign/svg/cursor-default-outline.svg",
-		},
-		true,
-		false,
-	)
+	stage.SetCursor(mouse.KCursorDefault)
 }
 
 func main() {
@@ -59,21 +45,6 @@ func main() {
 	done := make(chan struct{}, 0)
 	prepareDataBeforeRun()
 	fps.Set(60)
-
-	i := factoryImage.NewImage(
-		&stage.Canvas,
-		&stage.ScratchPad,
-		imgSpace.Get(),
-		-100,
-		-100,
-		24,
-		24,
-		density,
-		densityManager,
-	)
-	i.DragStart()
-	stage.Add(i.Draw)
-
 	//htmlElement.Remove(browserDocument.SelfDocument, imgSpace.Get())
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
