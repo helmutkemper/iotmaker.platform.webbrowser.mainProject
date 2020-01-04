@@ -2,14 +2,14 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.IDraw" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.coordinate" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.textMetrics" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.platform.webbrowser" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.channels-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.IDraw" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.coordinate" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.textMetrics" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser.mainProject" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.threadsafe" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/util" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/golang.org/x/image" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/fonts/Templarian/MaterialDesign" vcs="Git" />
   </component>
 </project>
