@@ -25,7 +25,7 @@ var (
 var htmlElement iotmakerPlatformIDraw.IHtml
 var browserDocument document.Document
 
-func prepareDataBeforeRun() {
+func prepareBeforeRun() {
 	htmlElement = &Html.Html{}
 	browserDocument = factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(
@@ -35,14 +35,14 @@ func prepareDataBeforeRun() {
 		density,
 		densityManager,
 	)
-	stage.SetCursor(mouse.KCursorDefault)
+	//stage.SetCursor(mouse.KCursorDefault)
+
+	stage.SetFps(60)
 }
 
 func main() {
-
 	done := make(chan struct{}, 0)
-	prepareDataBeforeRun()
-	stage.SetFps(60)
+	prepareBeforeRun()
 
 	browserDocument.AddEventListener(eventMouse.KClick, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	browserDocument.AddEventListener(eventMouse.KDblClick, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
