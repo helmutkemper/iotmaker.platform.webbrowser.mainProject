@@ -35,7 +35,7 @@ func prepareBeforeRun() {
 		density,
 		densityManager,
 	)
-	//stage.SetCursor(mouse.KCursorDefault)
+	stage.SetCursor(mouse.KCursorDefault)
 
 	stage.SetFps(60)
 }
