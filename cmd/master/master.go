@@ -9,10 +9,8 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/Html"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/canvas"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/document"
-	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/eventMouse"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserDocument"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
-	webBrowserMouse "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
 )
 
@@ -43,12 +41,6 @@ func prepareBeforeRun() {
 func main() {
 	done := make(chan struct{}, 0)
 	prepareBeforeRun()
-
-	browserDocument.AddEventListener(eventMouse.KClick, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
-	browserDocument.AddEventListener(eventMouse.KDblClick, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
-	browserDocument.AddEventListener(eventMouse.KMouseDown, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
-	browserDocument.AddEventListener(eventMouse.KMouseUp, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
-	browserDocument.AddEventListener(eventMouse.KContextMenu, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 
