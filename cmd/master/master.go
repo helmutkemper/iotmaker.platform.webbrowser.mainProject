@@ -13,7 +13,6 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserDocument"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/mouse"
-	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/fps"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
 )
 
@@ -28,7 +27,6 @@ var browserDocument document.Document
 
 func prepareDataBeforeRun() {
 	htmlElement = &Html.Html{}
-
 	browserDocument = factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(
 		htmlElement,
@@ -44,7 +42,7 @@ func main() {
 
 	done := make(chan struct{}, 0)
 	prepareDataBeforeRun()
-	fps.Set(60)
+	stage.SetFps(60)
 	//htmlElement.Remove(browserDocument.SelfDocument, imgSpace.Get())
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
