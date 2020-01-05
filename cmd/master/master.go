@@ -15,7 +15,6 @@ import (
 	webBrowserMouse "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/fps"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
-	"time"
 )
 
 var (
@@ -55,23 +54,6 @@ func main() {
 	browserDocument.AddEventListener(eventMouse.KMouseUp, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	browserDocument.AddEventListener(eventMouse.KContextMenu, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
-
-	ticker := time.NewTicker(time.Second * 3)
-	show := true
-	go func() {
-		for {
-			select {
-			case <-ticker.C:
-
-				show = !show
-				if show == true {
-					stage.CursorShow()
-				} else {
-					stage.CursorHide()
-				}
-			}
-		}
-	}()
 
 	<-done
 }
