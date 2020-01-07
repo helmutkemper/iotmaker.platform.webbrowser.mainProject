@@ -57,6 +57,7 @@ func main() {
 	prepareBeforeRun()
 
 	i := factoryImage.NewImage(
+		"space",
 		&stage.Canvas,
 		&stage.ScratchPad,
 		imgSpace.Get(),
