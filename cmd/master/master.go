@@ -76,7 +76,7 @@ func main() {
 
 	stage.AddToStage(i.Draw)
 
-	factoryTween.NewEaseInOutExponential(
+	factoryTween.NewLinear(
 		time.Second*4,
 		10.0,
 		600.0,
