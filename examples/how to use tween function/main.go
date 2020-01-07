@@ -11,7 +11,7 @@ import (
 	"github.com/helmutkemper/iotmaker.platform/abstractType/draw"
 	"github.com/helmutkemper/iotmaker.platform/factoryDraw"
 	"github.com/helmutkemper/iotmaker.platform/fps"
-	"github.com/helmutkemper/iotmaker.platform/tween"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/tween"
 )
 
 var (

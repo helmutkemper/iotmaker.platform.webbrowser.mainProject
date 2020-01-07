@@ -15,7 +15,9 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/mouse"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
+	"time"
 )
 
 var (
@@ -70,6 +72,19 @@ func main() {
 	)
 	i.DragStart()
 	stage.AddToStage(i.Draw)
+
+	factoryTween.NewEaseInCircular(
+		time.Second*2,
+		10.0,
+		300.0,
+		nil,
+		nil,
+		nil,
+		func(value, percentToComplete float64, arguments ...interface{}) {
+			i.Move(value, 10)
+		},
+		0,
+	)
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
