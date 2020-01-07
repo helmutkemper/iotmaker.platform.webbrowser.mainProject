@@ -14,6 +14,7 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/mouse"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/basic"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
@@ -70,20 +71,22 @@ func main() {
 		density,
 		densityManager,
 	)
+	i.SetDragMode(basic.KDragModeMobile)
 	i.DragStart()
+
 	stage.AddToStage(i.Draw)
 
-	factoryTween.NewEaseInCircular(
-		time.Second*2,
+	factoryTween.NewEaseInOutExponential(
+		time.Second*4,
 		10.0,
-		300.0,
+		600.0,
 		nil,
 		nil,
 		nil,
 		func(value, percentToComplete float64, arguments ...interface{}) {
 			i.Move(value, 10)
 		},
-		0,
+		1,
 	)
 
 	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
