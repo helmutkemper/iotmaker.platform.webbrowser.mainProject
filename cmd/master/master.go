@@ -14,7 +14,6 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/mouse"
-	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/basic"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
@@ -42,6 +41,7 @@ func prepareBeforeRun() {
 		densityManager,
 	)
 	stage.SetCursor(mouse.KCursorDefault)
+	stage.SetFps(120)
 
 	imgSpace = factoryBrowserImage.NewImage(
 		htmlElement,
@@ -71,7 +71,7 @@ func main() {
 		density,
 		densityManager,
 	)
-	i.SetDragMode(basic.KDragModeMobile)
+	//i.SetDragMode(basic.KDragModeMobile)
 	i.DragStart()
 
 	stage.AddToStage(i.Draw)
