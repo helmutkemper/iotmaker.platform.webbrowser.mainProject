@@ -14,6 +14,7 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	webBrowserMouse "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/mouse"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/engine"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
@@ -26,22 +27,26 @@ var (
 	stage          *canvas.Stage
 )
 
+var eng engine.IEngine
 var htmlElement iotmakerPlatformIDraw.IHtml
 var browserDocument document.Document
 var imgSpace Html.Image
 
 func prepareBeforeRun() {
 	htmlElement = &Html.Html{}
+	eng = &engine.Engine{}
+
 	browserDocument = factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(
 		htmlElement,
+		eng,
 		browserDocument,
 		"stage",
 		density,
 		densityManager,
 	)
 	stage.SetCursor(mouse.KCursorDefault)
-	stage.SetFps(60)
+	//stage.Engine(60)
 
 	imgSpace = factoryBrowserImage.NewImage(
 		htmlElement,
@@ -73,11 +78,11 @@ func main() {
 	)
 	//i.SetDragMode(basic.KDragModeMobile)
 	i.DragStart()
-
-	stage.AddToStage(i.Draw)
+	stage.AddToDraw(i.Draw)
 
 	factoryTween.NewLinear(
-		time.Second*4,
+		&engine.Engine{},
+		time.Second*2,
 		10.0,
 		600.0,
 		nil,
