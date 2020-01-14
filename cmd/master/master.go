@@ -41,7 +41,7 @@ func prepareBeforeRun() {
 		densityManager,
 	)
 	stage.SetCursor(mouse.KCursorDefault)
-	stage.SetFps(120)
+	stage.SetFps(60)
 
 	imgSpace = factoryBrowserImage.NewImage(
 		htmlElement,
@@ -89,7 +89,7 @@ func main() {
 		1,
 	)
 
-	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager(mouse.ManagerMouseMove))
+	browserDocument.AddEventListener(eventMouse.KMouseMove, webBrowserMouse.SetMouseMoveManager())
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 
 	<-done
