@@ -4,6 +4,7 @@
 package main
 
 import (
+	"fmt"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/Html"
@@ -59,7 +60,7 @@ func prepareBeforeRun() {
 }
 
 func main() {
-	done := make(chan struct{}, 0)
+	done := make(chan struct{})
 	prepareBeforeRun()
 
 	i := factoryImage.NewImage(
@@ -76,7 +77,7 @@ func main() {
 		densityManager,
 	)
 	//i.SetDragMode(basic.KDragModeMobile)
-	i.DragStart()
+	//i.DragStart()
 	stage.AddToDraw(i.Draw)
 
 	factoryTween.NewLinear(
@@ -84,13 +85,20 @@ func main() {
 		time.Second*2,
 		10.0,
 		600.0,
-		nil,
-		nil,
-		nil,
+		func(value float64, arguments ...interface{}) {
+			fmt.Printf("onStartFunction()\n")
+		},
+		func(value float64, arguments ...interface{}) {
+			//i.DragStart()
+			fmt.Printf("onEndFunction()\n")
+		},
+		func(value float64, arguments ...interface{}) {
+			fmt.Printf("onInvertFunction()\n")
+		},
 		func(value, percentToComplete float64, arguments ...interface{}) {
 			i.Move(value, 10)
 		},
-		1,
+		2,
 	)
 
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
