@@ -4,7 +4,6 @@
 package main
 
 import (
-	"fmt"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/Html"
@@ -15,9 +14,7 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/engine"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
-	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
-	"time"
 )
 
 var (
@@ -77,29 +74,30 @@ func main() {
 		densityManager,
 	)
 	//i.SetDragMode(basic.KDragModeMobile)
-	//i.DragStart()
+	i.DragStart()
 	stage.AddToDraw(i.Draw)
-
-	factoryTween.NewLinear(
-		&engine.Engine{},
-		time.Second*2,
-		10.0,
-		600.0,
-		func(value float64, arguments ...interface{}) {
-			fmt.Printf("onStartFunction()\n")
-		},
-		func(value float64, arguments ...interface{}) {
-			//i.DragStart()
-			fmt.Printf("onEndFunction()\n")
-		},
-		func(value float64, arguments ...interface{}) {
-			fmt.Printf("onInvertFunction()\n")
-		},
-		func(value, percentToComplete float64, arguments ...interface{}) {
-			i.Move(value, 10)
-		},
-		2,
-	)
+	/*
+		factoryTween.NewLinear(
+			&engine.Engine{},
+			time.Second*2,
+			10.0,
+			600.0,
+			func(value float64, arguments ...interface{}) {
+				fmt.Printf("onStartFunction()\n")
+			},
+			func(value float64, arguments ...interface{}) {
+				//i.DragStart()
+				fmt.Printf("onEndFunction()\n")
+			},
+			func(value float64, arguments ...interface{}) {
+				fmt.Printf("onInvertFunction()\n")
+			},
+			func(value, percentToComplete float64, arguments ...interface{}) {
+			  i.Move(value, 10)
+			},
+			2,
+		)
+	*/
 
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 
