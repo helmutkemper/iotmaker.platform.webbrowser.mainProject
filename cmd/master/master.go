@@ -15,6 +15,7 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/engine"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factorySimpleBox"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
 	"time"
@@ -79,6 +80,8 @@ func main() {
 	//i.SetDragMode(basic.KDragModeMobile)
 	i.DragStart()
 	stage.AddToDraw(i.Draw)
+
+	rect := factorySimpleBox.NewBoxWithRoundedCorners()
 
 	factoryTween.NewLinear(
 		&engine.Engine{},
