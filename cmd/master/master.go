@@ -93,6 +93,13 @@ func main() {
 			fmt.Printf("onEndFunction()\n")
 		},
 		func(value float64, arguments ...interface{}) {
+			fmt.Printf("onCycleStartFunction()\n")
+		},
+		func(value float64, arguments ...interface{}) {
+			//i.DragStart()
+			fmt.Printf("onCycleEndFunction()\n")
+		},
+		func(value float64, arguments ...interface{}) {
 			fmt.Printf("onInvertFunction()\n")
 		},
 		func(value, percentToComplete float64, arguments ...interface{}) {
