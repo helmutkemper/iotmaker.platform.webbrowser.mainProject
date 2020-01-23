@@ -81,7 +81,21 @@ func main() {
 	i.DragStart()
 	stage.AddToDraw(i.Draw)
 
-	rect := factorySimpleBox.NewBoxWithRoundedCorners()
+	rect := factorySimpleBox.NewBoxWithRoundedCorners(
+		"box",
+		eng,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		10,
+		10,
+		300,
+		100,
+		10,
+		density,
+		densityManager,
+	)
+	rect.DragStart()
+	stage.AddToDraw(rect.Draw)
 
 	factoryTween.NewLinear(
 		&engine.Engine{},
