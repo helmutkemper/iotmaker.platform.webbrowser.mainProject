@@ -63,7 +63,7 @@ func main() {
 
 	i := factoryImage.NewImage(
 		"space",
-		eng,
+		stage,
 		&stage.Canvas,
 		&stage.ScratchPad,
 		imgSpace.Get(),
@@ -80,7 +80,7 @@ func main() {
 
 	rect := factorySimpleBox.NewBoxWithRoundedCorners(
 		"boxDoKct",
-		eng,
+		stage,
 		&stage.Canvas,
 		&stage.ScratchPad,
 		10,
