@@ -76,7 +76,7 @@ func main() {
 	)
 	//i.SetDragMode(basic.KDragModeMobile)
 	i.DragStart()
-	stage.AddToDraw(i.Draw)
+	stage.AddToDraw(i)
 
 	rect := factorySimpleBox.NewBoxWithRoundedCorners(
 		"boxDoKct",
@@ -92,7 +92,7 @@ func main() {
 		densityManager,
 	)
 	rect.DragStart()
-	stage.AddToDraw(rect.Draw)
+	stage.AddToDraw(rect)
 
 	/*
 		factoryTween.NewLinear(
