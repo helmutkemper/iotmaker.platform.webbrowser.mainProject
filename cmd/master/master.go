@@ -13,8 +13,10 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/engine"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryColorNames"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factorySimpleBox"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryText"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
 )
 
@@ -93,6 +95,22 @@ func main() {
 	)
 	rect.DragStart()
 	stage.AddToDraw(rect)
+
+	t := factoryText.NewText(
+		"text",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		nil,
+		nil,
+		factoryColorNames.NewBlack(),
+		"Olá Mundo!",
+		100,
+		100,
+		density,
+		densityManager,
+	)
+	stage.AddToDraw(t)
 
 	/*
 		factoryTween.NewLinear(
