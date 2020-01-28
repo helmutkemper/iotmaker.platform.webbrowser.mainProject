@@ -12,8 +12,10 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserDocument"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryFontFamily"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/engine"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryColorNames"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryFont"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factorySimpleBox"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryText"
@@ -96,7 +98,7 @@ func main() {
 	rect.DragStart()
 	stage.AddToDraw(rect)
 
-	t := factoryText.NewText(
+	t1 := factoryText.NewText(
 		"text",
 		stage,
 		&stage.Canvas,
@@ -110,7 +112,31 @@ func main() {
 		density,
 		densityManager,
 	)
-	stage.AddToDraw(t)
+	stage.AddToDraw(t1)
+
+	t2 := factoryText.NewTextWithFont(
+		"text",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		nil,
+		nil,
+		factoryColorNames.NewBlack(),
+		factoryFont.NewFont(
+			24.0,
+			"px",
+			factoryColorNames.NewBlack(),
+			factoryFontFamily.NewArialBlack(),
+			density,
+			densityManager,
+		),
+		"Olá Mundo!",
+		200,
+		100,
+		density,
+		densityManager,
+	)
+	stage.AddToDraw(t2)
 
 	/*
 		factoryTween.NewLinear(
