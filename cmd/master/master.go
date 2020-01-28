@@ -4,6 +4,7 @@
 package main
 
 import (
+	"fmt"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/Html"
@@ -98,23 +99,7 @@ func main() {
 	rect.DragStart()
 	stage.AddToDraw(rect)
 
-	t1 := factoryText.NewText(
-		"text",
-		stage,
-		&stage.Canvas,
-		&stage.ScratchPad,
-		nil,
-		nil,
-		factoryColorNames.NewBlack(),
-		"Olá Mundo!",
-		100,
-		100,
-		density,
-		densityManager,
-	)
-	stage.AddToDraw(t1)
-
-	t2 := factoryText.NewTextWithFont(
+	t2 := factoryText.NewTextWithMaxWidth(
 		"text",
 		stage,
 		&stage.Canvas,
@@ -133,10 +118,25 @@ func main() {
 		"Olá Mundo!",
 		200,
 		100,
+		50,
 		density,
 		densityManager,
 	)
 	stage.AddToDraw(t2)
+
+	t3 := factoryText.NewMeasureText(
+		&stage.ScratchPad,
+		factoryFont.NewFont(
+			24.0,
+			"px",
+			factoryColorNames.NewBlack(),
+			factoryFontFamily.NewArialBlack(),
+			density,
+			densityManager,
+		),
+		"Olá mundo",
+	)
+	fmt.Printf("width: %v\n", t3.Width)
 
 	/*
 		factoryTween.NewLinear(
