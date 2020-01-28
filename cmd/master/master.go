@@ -5,6 +5,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.interfaces/iStage"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.coordinate"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/Html"
@@ -14,6 +15,7 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryFontFamily"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/font"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/engine"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryColorNames"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryFont"
@@ -83,24 +85,8 @@ func main() {
 	i.DragStart()
 	stage.AddToDraw(i)
 
-	rect := factorySimpleBox.NewBoxWithRoundedCorners(
-		"boxDoKct",
-		stage,
-		&stage.Canvas,
-		&stage.ScratchPad,
-		10,
-		10,
-		300,
-		100,
-		10,
-		density,
-		densityManager,
-	)
-	rect.DragStart()
-	stage.AddToDraw(rect)
-
-	t2 := factoryText.NewTextWithMaxWidth(
-		"text",
+	Button(
+		"button",
 		stage,
 		&stage.Canvas,
 		&stage.ScratchPad,
@@ -118,7 +104,48 @@ func main() {
 		"Olá Mundo!",
 		200,
 		100,
-		50,
+		300,
+		200,
+		5,
+		density,
+		densityManager,
+	)
+
+	rect := factorySimpleBox.NewBoxWithRoundedCorners(
+		"boxDoKct",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		10,
+		10,
+		300,
+		100,
+		10,
+		density,
+		densityManager,
+	)
+	rect.DragStart()
+	stage.AddToDraw(rect)
+
+	t2 := factoryText.NewText(
+		"text",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		nil,
+		nil,
+		factoryColorNames.NewBlack(),
+		factoryFont.NewFont(
+			24.0,
+			"px",
+			factoryColorNames.NewBlack(),
+			factoryFontFamily.NewArialBlack(),
+			density,
+			densityManager,
+		),
+		"Olá Mundo!",
+		20,
+		10,
 		density,
 		densityManager,
 	)
@@ -171,4 +198,67 @@ func main() {
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 
 	<-done
+}
+
+func Button(
+
+	id string,
+	stage iStage.IStage,
+	platform,
+	scratchPad iotmakerPlatformIDraw.IDraw,
+	shadow iotmakerPlatformIDraw.IFilterShadowInterface,
+	gradient iotmakerPlatformIDraw.IFilterGradientInterface,
+	color interface{},
+	labelFont font.Font,
+	label string,
+	x,
+	y,
+	width,
+	height,
+	border int,
+	density interface{},
+	iDensity coordinateManager.IDensity,
+
+) {
+
+	textMetrics := factoryText.NewMeasureText(
+		platform,
+		labelFont,
+		label,
+	)
+
+	xFont := x + width/2 - int(textMetrics.Width)/2
+
+	text := factoryText.NewText(
+		id+"Text",
+		stage,
+		platform,
+		scratchPad,
+		shadow,
+		gradient,
+		color,
+		labelFont,
+		label,
+		xFont,
+		y,
+		density,
+		densityManager,
+	)
+	stage.AddToDraw(text)
+
+	rect := factorySimpleBox.NewBoxWithRoundedCorners(
+		id+"Rect",
+		stage,
+		platform,
+		scratchPad,
+		x,
+		y,
+		width,
+		height,
+		border,
+		density,
+		densityManager,
+	)
+	stage.AddToDraw(rect)
+
 }
