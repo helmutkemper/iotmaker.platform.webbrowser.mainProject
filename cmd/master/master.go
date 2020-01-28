@@ -101,7 +101,7 @@ func main() {
 			density,
 			densityManager,
 		),
-		"Olá Mundo!",
+		"Olá!",
 		200,
 		100,
 		300,
