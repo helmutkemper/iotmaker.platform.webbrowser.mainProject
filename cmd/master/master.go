@@ -15,6 +15,7 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryFontFamily"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryFontStyle"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/font"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/engine"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryColorNames"
@@ -22,7 +23,9 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factorySimpleBox"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryText"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
+	"time"
 )
 
 var (
@@ -68,6 +71,15 @@ func main() {
 	done := make(chan struct{})
 	prepareBeforeRun()
 
+	f := factoryFont.NewFont(
+		24.0,
+		factoryColorNames.NewBlack(),
+		factoryFontFamily.NewArialBlack(),
+		factoryFontStyle.NewNotSet(),
+		density,
+		densityManager,
+	)
+
 	i := factoryImage.NewImage(
 		"space",
 		stage,
@@ -93,14 +105,7 @@ func main() {
 		nil,
 		nil,
 		factoryColorNames.NewBlack(),
-		factoryFont.NewFont(
-			24.0,
-			"px",
-			factoryColorNames.NewBlack(),
-			factoryFontFamily.NewArialBlack(),
-			density,
-			densityManager,
-		),
+		f,
 		"Olá!",
 		200,
 		100,
@@ -135,14 +140,7 @@ func main() {
 		nil,
 		nil,
 		factoryColorNames.NewBlack(),
-		factoryFont.NewFont(
-			24.0,
-			"px",
-			factoryColorNames.NewBlack(),
-			factoryFontFamily.NewArialBlack(),
-			density,
-			densityManager,
-		),
+		f,
 		"Olá Mundo!",
 		20,
 		10,
@@ -153,47 +151,38 @@ func main() {
 
 	t3 := factoryText.NewMeasureText(
 		&stage.ScratchPad,
-		factoryFont.NewFont(
-			24.0,
-			"px",
-			factoryColorNames.NewBlack(),
-			factoryFontFamily.NewArialBlack(),
-			density,
-			densityManager,
-		),
+		f,
 		"Olá mundo",
 	)
 	fmt.Printf("width: %v\n", t3.Width)
 
-	/*
-		factoryTween.NewLinear(
-			&engine.Engine{},
-			time.Second*2,
-			10.0,
-			600.0,
-			func(value float64, arguments ...interface{}) {
-				fmt.Printf("onStartFunction()\n")
-			},
-			func(value float64, arguments ...interface{}) {
-				//i.DragStart()
-				fmt.Printf("onEndFunction()\n")
-			},
-			func(value float64, arguments ...interface{}) {
-				fmt.Printf("onCycleStartFunction()\n")
-			},
-			func(value float64, arguments ...interface{}) {
-				//i.DragStart()
-				fmt.Printf("onCycleEndFunction()\n")
-			},
-			func(value float64, arguments ...interface{}) {
-				fmt.Printf("onInvertFunction()\n")
-			},
-			func(value, percentToComplete float64, arguments ...interface{}) {
-				i.Move(value, 10)
-			},
-			2,
-		)
-	*/
+	factoryTween.NewLinear(
+		&engine.Engine{},
+		time.Second*2,
+		10.0,
+		600.0,
+		func(value float64, arguments ...interface{}) {
+			fmt.Printf("onStartFunction()\n")
+		},
+		func(value float64, arguments ...interface{}) {
+			//i.DragStart()
+			fmt.Printf("onEndFunction()\n")
+		},
+		func(value float64, arguments ...interface{}) {
+			fmt.Printf("onCycleStartFunction()\n")
+		},
+		func(value float64, arguments ...interface{}) {
+			//i.DragStart()
+			fmt.Printf("onCycleEndFunction()\n")
+		},
+		func(value float64, arguments ...interface{}) {
+			fmt.Printf("onInvertFunction()\n")
+		},
+		func(value, percentToComplete float64, arguments ...interface{}) {
+			i.Move(int(value), 10)
+		},
+		2,
+	)
 
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 
@@ -217,7 +206,7 @@ func Button(
 	height,
 	border int,
 	density interface{},
-	iDensity coordinateManager.IDensity,
+	densityManager coordinateManager.IDensity,
 
 ) {
 
