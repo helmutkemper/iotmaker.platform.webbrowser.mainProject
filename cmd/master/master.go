@@ -4,7 +4,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.interfaces/iStage"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.coordinate"
@@ -42,7 +41,7 @@ var imgSpace Html.Image
 func prepareBeforeRun() {
 	htmlElement = &Html.Html{}
 	eng = &engine.Engine{}
-	eng.SetFPS(40)
+	eng.SetFPS(60)
 
 	browserDocument = factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(
@@ -158,21 +157,21 @@ func main() {
 		10.0,
 		600.0,
 		func(value float64, arguments ...interface{}) {
-			fmt.Printf("onStartFunction()\n")
+			//fmt.Printf("onStartFunction()\n")
 		},
 		func(value float64, arguments ...interface{}) {
 			//i.DragStart()
-			fmt.Printf("onEndFunction()\n")
+			//fmt.Printf("onEndFunction()\n")
 		},
 		func(value float64, arguments ...interface{}) {
-			fmt.Printf("onCycleStartFunction()\n")
+			//fmt.Printf("onCycleStartFunction()\n")
 		},
 		func(value float64, arguments ...interface{}) {
 			//i.DragStart()
-			fmt.Printf("onCycleEndFunction()\n")
+			//fmt.Printf("onCycleEndFunction()\n")
 		},
 		func(value float64, arguments ...interface{}) {
-			fmt.Printf("onInvertFunction()\n")
+			//fmt.Printf("onInvertFunction()\n")
 		},
 		func(value, percentToComplete float64, arguments ...interface{}) {
 			i.MoveX(int(value))
