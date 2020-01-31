@@ -93,7 +93,7 @@ func main() {
 		densityManager,
 	)
 	//i.SetDragMode(basic.KDragModeMobile)
-	//todo:cursor hand on mouse over
+	//todo:cursor hand on mouse over.
 	i.DragStart()
 	stage.AddToDraw(i)
 
