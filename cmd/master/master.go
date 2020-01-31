@@ -42,6 +42,7 @@ var imgSpace Html.Image
 func prepareBeforeRun() {
 	htmlElement = &Html.Html{}
 	eng = &engine.Engine{}
+	eng.SetFPS(40)
 
 	browserDocument = factoryBrowserDocument.NewDocument()
 	stage = factoryBrowserStage.NewStage(
@@ -53,7 +54,6 @@ func prepareBeforeRun() {
 		densityManager,
 	)
 	stage.SetCursor(mouse.KCursorDefault)
-	//stage.Engine(60)
 
 	imgSpace = factoryBrowserImage.NewImage(
 		htmlElement,
@@ -73,8 +73,8 @@ func main() {
 
 	f := factoryFont.NewFont(
 		24.0,
-		factoryColorNames.NewBlack(),
-		factoryFontFamily.NewArialBlack(),
+		factoryColorNames.NewRed(),
+		factoryFontFamily.NewVerdana(),
 		factoryFontStyle.NewNotSet(),
 		density,
 		densityManager,
@@ -94,10 +94,11 @@ func main() {
 		densityManager,
 	)
 	//i.SetDragMode(basic.KDragModeMobile)
+	//todo:cursor hand on mouse over
 	i.DragStart()
 	stage.AddToDraw(i)
 
-	Button(
+	/*Button(
 		"button",
 		stage,
 		&stage.Canvas,
@@ -114,9 +115,9 @@ func main() {
 		5,
 		density,
 		densityManager,
-	)
+	)*/
 
-	rect := factorySimpleBox.NewBoxWithRoundedCorners(
+	/*rect := factorySimpleBox.NewBoxWithRoundedCorners(
 		"boxDoKct",
 		stage,
 		&stage.Canvas,
@@ -131,6 +132,7 @@ func main() {
 	)
 	rect.DragStart()
 	stage.AddToDraw(rect)
+	*/
 
 	t2 := factoryText.NewText(
 		"text",
@@ -139,26 +141,20 @@ func main() {
 		&stage.ScratchPad,
 		nil,
 		nil,
-		factoryColorNames.NewBlack(),
+		factoryColorNames.NewRed(),
 		f,
-		"Olá Mundo!",
-		20,
-		10,
+		"Draggable text and rocket!",
+		50,
+		50,
 		density,
 		densityManager,
 	)
+	t2.DragStart()
 	stage.AddToDraw(t2)
-
-	t3 := factoryText.NewMeasureText(
-		&stage.ScratchPad,
-		f,
-		"Olá mundo",
-	)
-	fmt.Printf("width: %v\n", t3.Width)
 
 	factoryTween.NewLinear(
 		&engine.Engine{},
-		time.Second*2,
+		time.Second*20,
 		10.0,
 		600.0,
 		func(value float64, arguments ...interface{}) {
@@ -179,9 +175,9 @@ func main() {
 			fmt.Printf("onInvertFunction()\n")
 		},
 		func(value, percentToComplete float64, arguments ...interface{}) {
-			i.Move(int(value), 10)
+			i.MoveX(int(value))
 		},
-		2,
+		-1,
 	)
 
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
