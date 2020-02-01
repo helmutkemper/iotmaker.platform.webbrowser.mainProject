@@ -98,7 +98,7 @@ func main() {
 	i.DragStart()
 	stage.AddToDraw(i)
 
-	/*Button(
+	Button(
 		"button",
 		stage,
 		&stage.Canvas,
@@ -107,15 +107,15 @@ func main() {
 		nil,
 		factoryColorNames.NewBlack(),
 		f,
-		"Olá!",
+		"I am a button!",
 		200,
 		100,
-		300,
 		200,
+		33,
 		5,
 		density,
 		densityManager,
-	)*/
+	)
 
 	/*rect := factorySimpleBox.NewBoxWithRoundedCorners(
 		"boxDoKct",
