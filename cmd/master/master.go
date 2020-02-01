@@ -4,6 +4,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.interfaces/iStage"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.coordinate"
@@ -133,6 +134,8 @@ func main() {
 	stage.AddToDraw(rect)
 	*/
 
+	var dX = 0
+	var dXAdjust = 0
 	t2 := factoryText.NewText(
 		"text",
 		stage,
@@ -153,9 +156,9 @@ func main() {
 
 	factoryTween.NewLinear(
 		&engine.Engine{},
-		time.Second*20,
+		time.Second*10,
 		10.0,
-		600.0,
+		500.0,
 		func(value float64, arguments ...interface{}) {
 			//fmt.Printf("onStartFunction()\n")
 		},
@@ -174,10 +177,25 @@ func main() {
 			//fmt.Printf("onInvertFunction()\n")
 		},
 		func(value, percentToComplete float64, arguments ...interface{}) {
-			i.MoveX(int(value))
+			if i.DragIsDragging() {
+				return
+			}
+
+			i.MoveX(int(value) + dXAdjust)
 		},
 		-1,
 	)
+
+	i.SetOnDragStartFunc(func(x, y int) {
+		fmt.Printf("OnDragStartFunc id: %v\n", i.Id)
+	})
+
+	i.SetOnDragEndFunc(func(x, y int) {
+		fmt.Printf("OnDragEndFunc id: %v\n", i.Id)
+		dX, _ = i.GetDragDelta()
+		dXAdjust += dX
+		fmt.Printf("dx: %v\n", dX)
+	})
 
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 
