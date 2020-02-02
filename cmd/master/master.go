@@ -98,25 +98,6 @@ func main() {
 	i.DragStart()
 	stage.AddToDraw(i)
 
-	Button(
-		"button",
-		stage,
-		&stage.Canvas,
-		&stage.ScratchPad,
-		nil,
-		nil,
-		factoryColorNames.NewBlack(),
-		f,
-		"I am a button!",
-		200,
-		100,
-		200,
-		33,
-		5,
-		density,
-		densityManager,
-	)
-
 	/*rect := factorySimpleBox.NewBoxWithRoundedCorners(
 		"boxDoKct",
 		stage,
@@ -198,6 +179,40 @@ func main() {
 	})
 
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
+
+	rect := factorySimpleBox.NewBoxWithRoundedCorners(
+		"Container",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		800,
+		15,
+		400,
+		630,
+		3,
+		density,
+		densityManager,
+	)
+	stage.AddToDraw(rect)
+
+	Button(
+		"button",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		nil,
+		nil,
+		factoryColorNames.NewBlack(),
+		f,
+		"I am a button!",
+		200,
+		100,
+		200,
+		33,
+		5,
+		density,
+		densityManager,
+	)
 
 	<-done
 }
