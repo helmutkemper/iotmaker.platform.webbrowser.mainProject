@@ -91,7 +91,7 @@ func main() {
 	shadowColor := factoryColorNames.NewBlack()
 	shadow := factoryShadow.NewShadow(
 		shadowColor,
-		4,
+		8,
 		2,
 		2,
 		density,
@@ -119,7 +119,7 @@ func main() {
 		p1,
 		colorList,
 	)
-	inkSetup := ink.Ink{
+	inkSetup := &ink.Ink{
 		LineWidth: 1,
 		Shadow:    shadow,
 		Gradient:  gradient,
