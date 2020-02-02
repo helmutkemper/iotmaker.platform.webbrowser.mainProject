@@ -4,7 +4,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.interfaces/iStage"
 	iotmakerPlatformIDraw "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.IDraw"
 	coordinateManager "github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.coordinate"
@@ -16,14 +15,20 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryBrowserStage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryFontFamily"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryFontStyle"
-	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/font"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/abstractType/text"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/basic"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/engine"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryColorGradient"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryColorNames"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryFont"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryGradient"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryPoint"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryShadow"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factorySimpleBox"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryText"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/ink"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
 	"time"
 )
@@ -73,18 +78,60 @@ func main() {
 
 	f := factoryFont.NewFont(
 		24.0,
-		factoryColorNames.NewRed(),
 		factoryFontFamily.NewVerdana(),
 		factoryFontStyle.NewNotSet(),
 		density,
 		densityManager,
 	)
 
+	colorGradientBlack := factoryColorNames.NewBlack()
+	colorGradientWhite := factoryColorNames.NewWhite()
+	colorNotSet := factoryColorNames.NewNotSet()
+
+	shadowColor := factoryColorNames.NewBlack()
+	shadow := factoryShadow.NewShadow(
+		shadowColor,
+		4,
+		2,
+		2,
+		density,
+		densityManager,
+	)
+
+	p0 := factoryPoint.NewPoint(
+		0,
+		0,
+		density,
+		densityManager,
+	)
+	p1 := factoryPoint.NewPoint(
+		300,
+		300,
+		density,
+		densityManager,
+	)
+	colorStop0 := factoryColorGradient.NewColorPosition(colorGradientBlack, 0.0)
+	colorStop1 := factoryColorGradient.NewColorPosition(colorGradientWhite, 1.0)
+	colorList := factoryColorGradient.NewColorList(colorStop0, colorStop1)
+
+	gradient := factoryGradient.NewGradientLinearToFill(
+		p0,
+		p1,
+		colorList,
+	)
+	inkSetup := ink.Ink{
+		LineWidth: 1,
+		Shadow:    shadow,
+		Gradient:  gradient,
+		Color:     colorNotSet,
+	}
+
 	i := factoryImage.NewImage(
 		"space",
 		stage,
 		&stage.Canvas,
 		&stage.ScratchPad,
+		inkSetup,
 		imgSpace.Get(),
 		10,
 		10,
@@ -122,9 +169,7 @@ func main() {
 		stage,
 		&stage.Canvas,
 		&stage.ScratchPad,
-		nil,
-		nil,
-		factoryColorNames.NewRed(),
+		inkSetup,
 		f,
 		"Draggable text and rocket!",
 		50,
@@ -168,14 +213,14 @@ func main() {
 	)
 
 	i.SetOnDragStartFunc(func(x, y int) {
-		fmt.Printf("OnDragStartFunc id: %v\n", i.Id)
+		//fmt.Printf("OnDragStartFunc id: %v\n", i.Id)
 	})
 
 	i.SetOnDragEndFunc(func(x, y int) {
-		fmt.Printf("OnDragEndFunc id: %v\n", i.Id)
+		//fmt.Printf("OnDragEndFunc id: %v\n", i.Id)
 		dX, _ = i.GetDragDelta()
 		dXAdjust += dX
-		fmt.Printf("dx: %v\n", dX)
+		//fmt.Printf("dx: %v\n", dX)
 	})
 
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
@@ -195,16 +240,32 @@ func main() {
 	)
 	stage.AddToDraw(rect)
 
+	font := factoryFont.NewFont(
+		10,
+		factoryFontFamily.NewVerdana(),
+		factoryFontStyle.NewNotSet(),
+		density,
+		densityManager,
+	)
+
+	text := factoryText.NewTextToButton(
+		"textFomButton",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		inkSetup,
+		font,
+		"click-me!",
+		density,
+		densityManager,
+	)
+
 	Button(
 		"button",
 		stage,
 		&stage.Canvas,
 		&stage.ScratchPad,
-		nil,
-		nil,
-		factoryColorNames.NewBlack(),
-		f,
-		"I am a button!",
+		[]basic.ISpriteBasicElement{text},
 		200,
 		100,
 		200,
@@ -223,11 +284,7 @@ func Button(
 	stage iStage.IStage,
 	platform,
 	scratchPad iotmakerPlatformIDraw.IDraw,
-	shadow iotmakerPlatformIDraw.IFilterShadowInterface,
-	gradient iotmakerPlatformIDraw.IFilterGradientInterface,
-	color interface{},
-	labelFont font.Font,
-	label string,
+	list []basic.ISpriteBasicElement,
 	x,
 	y,
 	width,
@@ -238,30 +295,14 @@ func Button(
 
 ) {
 
-	textMetrics := factoryText.NewMeasureText(
-		platform,
-		labelFont,
-		label,
-	)
+	for _, element := range list {
 
-	xFont := x + width/2 - int(textMetrics.Width)/2
+		switch converted := element.(type) {
+		case *text.Text:
+			stage.AddToDraw(converted)
+		}
 
-	text := factoryText.NewText(
-		id+"Text",
-		stage,
-		platform,
-		scratchPad,
-		shadow,
-		gradient,
-		color,
-		labelFont,
-		label,
-		xFont,
-		y,
-		density,
-		densityManager,
-	)
-	stage.AddToDraw(text)
+	}
 
 	rect := factorySimpleBox.NewBoxWithRoundedCorners(
 		id+"Rect",
