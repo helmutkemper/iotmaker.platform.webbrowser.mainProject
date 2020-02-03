@@ -28,6 +28,7 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factorySimpleBox"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryText"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/gravity"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/ink"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/mouse"
 	"time"
@@ -126,6 +127,22 @@ func main() {
 		Color:     colorNotSet,
 	}
 
+	t2 := factoryText.NewText(
+		"text",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		inkSetup,
+		f,
+		"Draggable text and rocket! - bug chato do kct",
+		50,
+		50,
+		density,
+		densityManager,
+	)
+	t2.DragStart()
+	stage.AddToDraw(t2)
+
 	i := factoryImage.NewImage(
 		"space",
 		stage,
@@ -145,40 +162,8 @@ func main() {
 	i.DragStart()
 	stage.AddToDraw(i)
 
-	/*rect := factorySimpleBox.NewBoxWithRoundedCorners(
-		"boxDoKct",
-		stage,
-		&stage.Canvas,
-		&stage.ScratchPad,
-		10,
-		10,
-		300,
-		100,
-		10,
-		density,
-		densityManager,
-	)
-	rect.DragStart()
-	stage.AddToDraw(rect)
-	*/
-
 	var dX = 0
 	var dXAdjust = 0
-	t2 := factoryText.NewText(
-		"text",
-		stage,
-		&stage.Canvas,
-		&stage.ScratchPad,
-		inkSetup,
-		f,
-		"Draggable text and rocket!",
-		50,
-		50,
-		density,
-		densityManager,
-	)
-	t2.DragStart()
-	stage.AddToDraw(t2)
 
 	factoryTween.NewLinear(
 		&engine.Engine{},
@@ -225,47 +210,33 @@ func main() {
 
 	//mouse.AddFunctionPointer("bBox2", bx2.GetCollisionBox, bateu)
 
-	rect := factorySimpleBox.NewBoxWithRoundedCorners(
-		"Container",
-		stage,
-		&stage.Canvas,
-		&stage.ScratchPad,
-		800,
-		15,
-		400,
-		630,
-		3,
-		density,
-		densityManager,
-	)
-	stage.AddToDraw(rect)
-
-	font := factoryFont.NewFont(
-		10,
+	/*font := factoryFont.NewFont(
+		18,
 		factoryFontFamily.NewVerdana(),
 		factoryFontStyle.NewNotSet(),
 		density,
 		densityManager,
-	)
+	)*/
 
-	text := factoryText.NewTextToButton(
-		"textFomButton",
-		stage,
-		&stage.Canvas,
-		&stage.ScratchPad,
-		inkSetup,
-		font,
-		"click-me!",
-		density,
-		densityManager,
-	)
+	/*textToButton := factoryText.NewTextToButton(
+			"textFomButton",
+			stage,
+			&stage.Canvas,
+			&stage.ScratchPad,
+	    inkColorBlack,
+			font,
+			"click-me!",
+			density,
+			densityManager,
+		)*/
 
-	Button(
+	/*Button(
 		"button",
 		stage,
 		&stage.Canvas,
 		&stage.ScratchPad,
-		[]basic.ISpriteBasicElement{text},
+		inkSetup,
+		[]basic.ISpriteBasicElement{textToButton},
 		200,
 		100,
 		200,
@@ -273,7 +244,7 @@ func main() {
 		5,
 		density,
 		densityManager,
-	)
+	)*/
 
 	<-done
 }
@@ -284,6 +255,7 @@ func Button(
 	stage iStage.IStage,
 	platform,
 	scratchPad iotmakerPlatformIDraw.IDraw,
+	ink ink.Interface,
 	list []basic.ISpriteBasicElement,
 	x,
 	y,
@@ -299,6 +271,14 @@ func Button(
 
 		switch converted := element.(type) {
 		case *text.Text:
+
+			switch converted.Gravity {
+			case gravity.KBottom:
+			case gravity.KCenter:
+			case gravity.KCenterHorizontal:
+			case gravity.KCenterVertical:
+			}
+
 			stage.AddToDraw(converted)
 		}
 
@@ -309,6 +289,7 @@ func Button(
 		stage,
 		platform,
 		scratchPad,
+		ink,
 		x,
 		y,
 		width,
