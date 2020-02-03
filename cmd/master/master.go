@@ -176,7 +176,7 @@ func main() {
 		func(value float64, arguments ...interface{}) {
 			//i.DragStart()
 			//fmt.Printf("onEndFunction()\n")
-		},
+		}, //
 		func(value float64, arguments ...interface{}) {
 			//fmt.Printf("onCycleStartFunction()\n")
 		},
