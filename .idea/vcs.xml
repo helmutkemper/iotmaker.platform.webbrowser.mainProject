@@ -10,7 +10,8 @@
     <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.textMetrics" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.uml" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.threadsafe" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser.mainProject" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/util" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmd/server/fonts/Templarian/MaterialDesign" vcs="Git" />
   </component>
 </project>

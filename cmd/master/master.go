@@ -167,7 +167,7 @@ func main() {
 
 	factoryTween.NewLinear(
 		&engine.Engine{},
-		time.Second*10,
+		time.Second*2,
 		10.0,
 		500.0,
 		func(value float64, arguments ...interface{}) {
