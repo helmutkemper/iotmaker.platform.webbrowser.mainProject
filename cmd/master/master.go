@@ -247,7 +247,10 @@ func main() {
 		densityManager,
 	)*/
 
-	father, container := dimensions.Test()
+	containerList := dimensions.Test()
+	father := containerList[0]
+	containerA := containerList[1]
+	containerB := containerList[2]
 
 	rectFather := factorySimpleBox.NewBoxWithRoundedCorners(
 		"father",
@@ -265,21 +268,37 @@ func main() {
 	)
 	stage.AddToDraw(rectFather)
 
-	rectContainer := factorySimpleBox.NewBoxWithRoundedCorners(
-		"contaoner",
+	rectContainerA := factorySimpleBox.NewBoxWithRoundedCorners(
+		"contaonerA",
 		stage,
 		&stage.Canvas,
 		&stage.ScratchPad,
 		inkSetup,
-		container.X,
-		container.Y,
-		container.Width,
-		container.Height,
+		containerA.X,
+		containerA.Y,
+		containerA.Width,
+		containerA.Height,
 		0,
 		density,
 		densityManager,
 	)
-	stage.AddToDraw(rectContainer)
+	stage.AddToDraw(rectContainerA)
+
+	rectContainerB := factorySimpleBox.NewBoxWithRoundedCorners(
+		"contaonerB",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		inkSetup,
+		containerB.X,
+		containerB.Y,
+		containerB.Width,
+		containerB.Height,
+		0,
+		density,
+		densityManager,
+	)
+	stage.AddToDraw(rectContainerB)
 
 	<-done
 }
