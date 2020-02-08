@@ -17,6 +17,7 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser/factoryFontStyle"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/abstractType/text"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/basic"
+	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/dimensions"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/engine"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryColorGradient"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryColorNames"
@@ -24,7 +25,6 @@ import (
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryGradient"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryImage"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryPoint"
-	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryShadow"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factorySimpleBox"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryText"
 	"github.com/helmutkemper/iotmaker.santa_isabel_theater.platform/factoryTween"
@@ -86,18 +86,19 @@ func main() {
 	)
 
 	colorGradientBlack := factoryColorNames.NewBlack()
-	colorGradientWhite := factoryColorNames.NewWhite()
+	colorGradientBlack.A = 30
+	//colorGradientWhite := factoryColorNames.NewWhite()
 	colorNotSet := factoryColorNames.NewNotSet()
 
-	shadowColor := factoryColorNames.NewBlack()
-	shadow := factoryShadow.NewShadow(
+	//shadowColor := factoryColorNames.NewBlack()
+	/*shadow := factoryShadow.NewShadow(
 		shadowColor,
 		8,
 		2,
 		2,
 		density,
 		densityManager,
-	)
+	)*/
 
 	p0 := factoryPoint.NewPoint(
 		0,
@@ -112,7 +113,7 @@ func main() {
 		densityManager,
 	)
 	colorStop0 := factoryColorGradient.NewColorPosition(colorGradientBlack, 0.0)
-	colorStop1 := factoryColorGradient.NewColorPosition(colorGradientWhite, 1.0)
+	colorStop1 := factoryColorGradient.NewColorPosition(colorGradientBlack, 1.0)
 	colorList := factoryColorGradient.NewColorList(colorStop0, colorStop1)
 
 	gradient := factoryGradient.NewGradientLinearToFill(
@@ -122,7 +123,7 @@ func main() {
 	)
 	inkSetup := &ink.Ink{
 		LineWidth: 1,
-		Shadow:    shadow,
+		Shadow:    nil,
 		Gradient:  gradient,
 		Color:     colorNotSet,
 	}
@@ -245,6 +246,40 @@ func main() {
 		density,
 		densityManager,
 	)*/
+
+	father, container := dimensions.Test()
+
+	rectFather := factorySimpleBox.NewBoxWithRoundedCorners(
+		"father",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		inkSetup,
+		father.X,
+		father.Y,
+		father.Width,
+		father.Height,
+		0,
+		density,
+		densityManager,
+	)
+	stage.AddToDraw(rectFather)
+
+	rectContainer := factorySimpleBox.NewBoxWithRoundedCorners(
+		"contaoner",
+		stage,
+		&stage.Canvas,
+		&stage.ScratchPad,
+		inkSetup,
+		container.X,
+		container.Y,
+		container.Width,
+		container.Height,
+		0,
+		density,
+		densityManager,
+	)
+	stage.AddToDraw(rectContainer)
 
 	<-done
 }
