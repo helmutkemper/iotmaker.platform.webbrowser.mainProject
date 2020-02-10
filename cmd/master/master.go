@@ -87,6 +87,10 @@ func main() {
 
 	colorGradientBlack := factoryColorNames.NewBlack()
 	colorGradientBlack.A = 30
+
+	colorGradientRed := factoryColorNames.NewRed()
+	colorGradientRed.A = 30
+
 	//colorGradientWhite := factoryColorNames.NewWhite()
 	colorNotSet := factoryColorNames.NewNotSet()
 
@@ -125,6 +129,22 @@ func main() {
 		LineWidth: 1,
 		Shadow:    nil,
 		Gradient:  gradient,
+		Color:     colorNotSet,
+	}
+
+	colorRedStop0 := factoryColorGradient.NewColorPosition(colorGradientRed, 0.0)
+	colorRedStop1 := factoryColorGradient.NewColorPosition(colorGradientRed, 1.0)
+	colorListRed := factoryColorGradient.NewColorList(colorRedStop0, colorRedStop1)
+
+	gradientRed := factoryGradient.NewGradientLinearToFill(
+		p0,
+		p1,
+		colorListRed,
+	)
+	inkSetupRed := &ink.Ink{
+		LineWidth: 1,
+		Shadow:    nil,
+		Gradient:  gradientRed,
 		Color:     colorNotSet,
 	}
 
@@ -248,25 +268,8 @@ func main() {
 	)*/
 
 	containerList := dimensions.Test()
-	father := containerList[0]
-	containerA := containerList[1]
-	containerB := containerList[2]
-
-	rectFather := factorySimpleBox.NewBoxWithRoundedCorners(
-		"father",
-		stage,
-		&stage.Canvas,
-		&stage.ScratchPad,
-		inkSetup,
-		father.X,
-		father.Y,
-		father.Width,
-		father.Height,
-		0,
-		density,
-		densityManager,
-	)
-	stage.AddToDraw(rectFather)
+	containerA := containerList[0]
+	containerB := containerList[1]
 
 	rectContainerA := factorySimpleBox.NewBoxWithRoundedCorners(
 		"contaonerA",
@@ -289,7 +292,7 @@ func main() {
 		stage,
 		&stage.Canvas,
 		&stage.ScratchPad,
-		inkSetup,
+		inkSetupRed,
 		containerB.X,
 		containerB.Y,
 		containerB.Width,
