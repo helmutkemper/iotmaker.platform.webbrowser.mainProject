@@ -2,15 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.channels-go" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.interfaces" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.IDraw" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.coordinate" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.textMetrics" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.uml" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/iotmaker.santa_isabel_theater.platform.webbrowser.mainProject" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Libraries/src/github.com/helmutkemper/util" vcs="Git" />
   </component>
 </project>
